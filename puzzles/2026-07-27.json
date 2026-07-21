@@ -1,0 +1,36 @@
+{
+  "date": "2026-07-27",
+  "number": 7,
+  "rounds": [
+    {
+      "image": "assets/vj-kiss.jpg",
+      "year": 1945,
+      "blurb": "V-J Day in Times Square: a sailor's kiss as news of Japan's surrender breaks.",
+      "credit": "Victor Jorgensen, U.S. Navy \u2014 public domain"
+    },
+    {
+      "image": "assets/times-square-20.jpg",
+      "year": 2020,
+      "blurb": "Times Square, deserted at midday in the first spring of the pandemic.",
+      "credit": "Aaron Barlow (CC BY-SA 4.0)"
+    },
+    {
+      "image": "assets/space-needle-62.jpg",
+      "year": 1962,
+      "blurb": "The Space Needle rises over the Century 21 Exposition \u2014 the Seattle World's Fair.",
+      "credit": "Seattle Municipal Archives \u2014 public domain"
+    },
+    {
+      "image": "assets/falcon-heavy.jpg",
+      "year": 2018,
+      "blurb": "Falcon Heavy's first flight leaves Pad 39A \u2014 with a Roadster for a payload.",
+      "credit": "SpaceX (CC0)"
+    },
+    {
+      "image": "assets/ruth-1920.jpg",
+      "year": 1920,
+      "blurb": "Babe Ruth in his first season as a Yankee \u2014 the year the home run changed baseball.",
+      "credit": "Paul Thompson \u2014 public domain"
+    }
+  ]
+}

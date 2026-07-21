@@ -1,0 +1,36 @@
+{
+  "date": "2026-07-24",
+  "number": 4,
+  "rounds": [
+    {
+      "image": "assets/first-flight.jpg",
+      "year": 1903,
+      "blurb": "Orville Wright pilots the first powered flight at Kitty Hawk, North Carolina, while Wilbur runs alongside.",
+      "credit": "John T. Daniels / Library of Congress \u2014 public domain"
+    },
+    {
+      "image": "assets/migrant-mother.jpg",
+      "year": 1936,
+      "blurb": "Dorothea Lange's \"Migrant Mother\": Florence Owens Thompson in a pea pickers' camp in Nipomo, California.",
+      "credit": "Dorothea Lange / Farm Security Administration \u2014 public domain"
+    },
+    {
+      "image": "assets/pluto.jpg",
+      "year": 2015,
+      "blurb": "Pluto in true color, captured by New Horizons during humanity's first flyby of the dwarf planet.",
+      "credit": "NASA / JHU-APL / SwRI \u2014 public domain"
+    },
+    {
+      "image": "assets/pool-it-74.jpg",
+      "year": 1974,
+      "blurb": "A carpooling appeal near Vancouver, Washington, as the first oil crisis dragged on.",
+      "credit": "David Falconer / EPA Documerica, National Archives \u2014 public domain"
+    },
+    {
+      "image": "assets/occupy.jpg",
+      "year": 2011,
+      "blurb": "Occupy Wall Street gathers near Zuccotti Park on the movement's first day.",
+      "credit": "David Shankbone (CC BY 3.0)"
+    }
+  ]
+}

@@ -1,0 +1,385 @@
+{
+  "comment": "Canonical curated image library. Every entry: exact verified year, license audited against the Wikimedia Commons API (verified block), one-line reveal blurb, attribution line, difficulty 1 (easiest) to 5. Images referenced by Commons filename; URLs are built by the generator (Special:FilePath for now, CDN base later).",
+  "auditedOn": "2026-07-21",
+  "images": [
+    {
+      "id": "first-flight",
+      "commonsFile": "First flight2.jpg",
+      "year": 1903,
+      "difficulty": 1,
+      "blurb": "Orville Wright pilots the first powered flight at Kitty Hawk, North Carolina, while Wilbur runs alongside.",
+      "credit": "John T. Daniels / Library of Congress — public domain",
+      "verified": { "license": "Public domain", "artist": "John T. Daniels", "dateOriginal": "1903-12-17" }
+    },
+    {
+      "id": "sf-earthquake",
+      "commonsFile": "San Francisco Fire Sacramento Street 1906-04-18.jpg",
+      "year": 1906,
+      "difficulty": 4,
+      "blurb": "Residents of Sacramento Street watch the fires after the San Francisco earthquake.",
+      "credit": "Arnold Genthe — public domain",
+      "verified": { "license": "Public domain", "artist": "Arnold Genthe", "dateOriginal": "1906-04-18" }
+    },
+    {
+      "id": "titanic",
+      "commonsFile": "RMS Titanic 3.jpg",
+      "year": 1912,
+      "difficulty": 1,
+      "blurb": "RMS Titanic departs Southampton on her maiden — and only — voyage.",
+      "credit": "F.G.O. Stuart — public domain",
+      "verified": { "license": "Public domain", "artist": "Francis Godolphin Osbourne Stuart", "dateOriginal": "1912-04-10" }
+    },
+    {
+      "id": "lindbergh",
+      "commonsFile": "Charles Lindbergh and the Spirit of Saint Louis (Crisco restoration, with wings).jpg",
+      "year": 1927,
+      "difficulty": 3,
+      "blurb": "Charles Lindbergh with the Spirit of St. Louis, the year of the first solo transatlantic flight.",
+      "credit": "Library of Congress — public domain",
+      "verified": { "license": "Public domain", "artist": "Unknown", "dateOriginal": "1927-05-31" }
+    },
+    {
+      "id": "migrant-mother",
+      "commonsFile": "Lange-MigrantMother02.jpg",
+      "year": 1936,
+      "difficulty": 2,
+      "blurb": "Dorothea Lange's \"Migrant Mother\": Florence Owens Thompson in a pea pickers' camp in Nipomo, California.",
+      "credit": "Dorothea Lange / Farm Security Administration — public domain",
+      "verified": { "license": "Public domain", "artist": "Dorothea Lange", "dateOriginal": "1936-03-06" }
+    },
+    {
+      "id": "hindenburg",
+      "commonsFile": "Hindenburg disaster.jpg",
+      "year": 1937,
+      "difficulty": 2,
+      "blurb": "The airship Hindenburg burns while landing at Naval Air Station Lakehurst, New Jersey.",
+      "credit": "Sam Shere — public domain",
+      "verified": { "license": "Public domain", "artist": "Sam Shere", "dateOriginal": "1937-05-06" }
+    },
+    {
+      "id": "mlk-march",
+      "commonsFile": "Martin Luther King - March on Washington.jpg",
+      "year": 1963,
+      "difficulty": 2,
+      "blurb": "Martin Luther King Jr. at the March on Washington for Jobs and Freedom.",
+      "credit": "Rowland Scherman / U.S. Information Agency — public domain",
+      "verified": { "license": "Public domain", "artist": "Rowland Scherman", "dateOriginal": "1963-08-28" }
+    },
+    {
+      "id": "earthrise",
+      "commonsFile": "NASA-Apollo8-Dec24-Earthrise.jpg",
+      "year": 1968,
+      "difficulty": 2,
+      "blurb": "\"Earthrise,\" taken from lunar orbit during Apollo 8 — the first crewed mission to leave Earth orbit.",
+      "credit": "Bill Anders / NASA — public domain",
+      "verified": { "license": "Public domain", "artist": "NASA/Bill Anders", "dateOriginal": "1968-12-24" }
+    },
+    {
+      "id": "aldrin",
+      "commonsFile": "Aldrin Apollo 11.jpg",
+      "year": 1969,
+      "difficulty": 1,
+      "blurb": "Buzz Aldrin on the Sea of Tranquility, photographed by Neil Armstrong during Apollo 11.",
+      "credit": "Neil Armstrong / NASA — public domain",
+      "verified": { "license": "Public domain", "artist": "Neil A. Armstrong", "dateOriginal": "1969-07-20" }
+    },
+    {
+      "id": "elvis-nixon",
+      "commonsFile": "Elvis-nixon.jpg",
+      "year": 1970,
+      "difficulty": 3,
+      "blurb": "Elvis Presley meets Richard Nixon in the Oval Office — the National Archives' most-requested photograph.",
+      "credit": "Ollie Atkins / White House — public domain",
+      "verified": { "license": "Public domain", "artist": "Ollie Atkins, chief White House photographer", "dateOriginal": "1970-12-21" }
+    },
+    {
+      "id": "blue-marble",
+      "commonsFile": "The Earth seen from Apollo 17.jpg",
+      "year": 1972,
+      "difficulty": 4,
+      "blurb": "\"The Blue Marble,\" taken by the crew of Apollo 17 — the last crewed lunar mission — on the way to the Moon.",
+      "credit": "NASA / Apollo 17 crew — public domain",
+      "verified": { "license": "Public domain", "artist": "NASA/Apollo 17 crew", "dateOriginal": "1972-12-07" }
+    },
+    {
+      "id": "times-square-73",
+      "commonsFile": "TIMES SQUARE - NARA - 554298.jpg",
+      "year": 1973,
+      "difficulty": 4,
+      "blurb": "Times Square in high summer, photographed for the EPA's Documerica project.",
+      "credit": "Dan McCoy / EPA Documerica, National Archives — public domain",
+      "verified": { "license": "Public domain", "artist": "Dan McCoy", "dateOriginal": "1973-08" }
+    },
+    {
+      "id": "subway-graffiti-73",
+      "commonsFile": "MANY SUBWAY CARS IN NEW YORK CITY HAVE BEEN SPRAY-PAINTED BY VANDALS - NARA - 548260.jpg",
+      "year": 1973,
+      "difficulty": 4,
+      "blurb": "Riders in a spray-painted New York subway car, photographed for the EPA's Documerica project.",
+      "credit": "Erik Calonius / EPA Documerica, National Archives — public domain",
+      "verified": { "license": "Public domain", "artist": "Erik Calonius", "dateOriginal": "1973-05" }
+    },
+    {
+      "id": "pool-it-74",
+      "commonsFile": "\"POOL IT\" SIGN NORTH OF VANCOUVER, WASHINGTON, WAS A REMINDER THAT THE GASOLINE SHORTAGE WAS NOT OVER IN MARCH, 1974... - NARA - 555504.jpg",
+      "year": 1974,
+      "difficulty": 3,
+      "blurb": "A carpooling appeal near Vancouver, Washington, as the first oil crisis dragged on.",
+      "credit": "David Falconer / EPA Documerica, National Archives — public domain",
+      "verified": { "license": "Public domain", "artist": "David Falconer", "dateOriginal": "1974-03" }
+    },
+    {
+      "id": "voyager-launch",
+      "commonsFile": "Titan 3E Centaur launches Voyager 2.jpg",
+      "year": 1977,
+      "difficulty": 3,
+      "blurb": "Voyager 2 leaves Earth aboard a Titan IIIE — carrying the Golden Record toward interstellar space.",
+      "credit": "NASA/MSFC — public domain",
+      "verified": { "license": "Public domain", "artist": "NASA/MSFC", "dateOriginal": "1977-08-20" }
+    },
+    {
+      "id": "st-helens",
+      "commonsFile": "MSH80 eruption mount st helens 05-18-80-dramatic-edit.jpg",
+      "year": 1980,
+      "difficulty": 2,
+      "blurb": "Mount St. Helens erupts on the morning of May 18 — the deadliest volcanic event in U.S. history.",
+      "credit": "Austin Post / USGS — public domain",
+      "verified": { "license": "Public domain", "artist": "Austin Post", "dateOriginal": "1980-05-18" }
+    },
+    {
+      "id": "sts-1",
+      "commonsFile": "Space Shuttle Columbia launching.jpg",
+      "year": 1981,
+      "difficulty": 3,
+      "blurb": "Space Shuttle Columbia lifts off on STS-1, the first flight of the Shuttle program.",
+      "credit": "NASA — public domain",
+      "verified": { "license": "Public domain", "artist": "NASA", "dateOriginal": "1981-04-12" }
+    },
+    {
+      "id": "sally-ride",
+      "commonsFile": "Sally Ride, America's first woman astronaut communicates with ground controllers from the flight deck - NARA - 541940.jpg",
+      "year": 1983,
+      "difficulty": 3,
+      "blurb": "Sally Ride on Challenger's flight deck during STS-7 — America's first woman in space.",
+      "credit": "NASA / National Archives — public domain",
+      "verified": { "license": "Public domain", "artist": "NASA", "dateOriginal": "1983-06 (STS-7 mission window)" }
+    },
+    {
+      "id": "olympics-84",
+      "commonsFile": "Opening ceremony of the 1984 Olympics.jpg",
+      "year": 1984,
+      "difficulty": 3,
+      "blurb": "Opening ceremony of the Summer Olympics at the Los Angeles Memorial Coliseum.",
+      "credit": "U.S. Air Force — public domain",
+      "verified": { "license": "Public domain", "artist": "U.S. Air Force", "dateOriginal": "1984-07-28" }
+    },
+    {
+      "id": "challenger",
+      "commonsFile": "Challenger explosion.jpg",
+      "year": 1986,
+      "difficulty": 1,
+      "blurb": "Space Shuttle Challenger breaks apart 73 seconds after launch.",
+      "credit": "NASA / Kennedy Space Center — public domain",
+      "verified": { "license": "Public domain", "artist": "Kennedy Space Center", "dateOriginal": "1986-01-28" }
+    },
+    {
+      "id": "reagan-wall",
+      "commonsFile": "President Ronald Reagan Making His Berlin Wall Speech at Brandenburg Gate West Berlin - DPLA - dce9b53e6ef9b7e01d184ce61f78871b.jpg",
+      "year": 1987,
+      "difficulty": 2,
+      "blurb": "\"Tear down this wall\" — Ronald Reagan speaks at the Brandenburg Gate in West Berlin.",
+      "credit": "White House Photographic Office / DPLA — public domain",
+      "verified": { "license": "Public domain", "artist": "White House Photographic Office", "dateOriginal": "1987-06-12" }
+    },
+    {
+      "id": "kuwait-fires",
+      "commonsFile": "F-14A VF-114 over burning Kuwaiti oil well 1991.JPEG",
+      "year": 1991,
+      "difficulty": 2,
+      "blurb": "A U.S. Navy F-14 over Kuwait's burning oil wells in the months after the Gulf War.",
+      "credit": "Lt. Steve Gozzo, U.S. Navy — public domain",
+      "verified": { "license": "Public domain", "artist": "Lt. Steve Gozzo, U.S. Navy", "dateOriginal": "1991-09-10" }
+    },
+    {
+      "id": "unity-sts88",
+      "commonsFile": "Unity Module in the Payload Bay for STS-88 - GPN-2000-000825.jpg",
+      "year": 1998,
+      "difficulty": 4,
+      "blurb": "The International Space Station begins: the Unity node rides in Endeavour's payload bay before mating with Zarya.",
+      "credit": "NASA — public domain",
+      "verified": { "license": "Public domain", "artist": "NASA", "dateOriginal": "1998-11-19" }
+    },
+    {
+      "id": "spaceshipone",
+      "commonsFile": "Mike Melvill upon the completion of mission 15P the first private trip into Space photo Don Ramey Logan.jpg",
+      "year": 2004,
+      "difficulty": 4,
+      "blurb": "Test pilot Mike Melvill celebrates atop SpaceShipOne after the first privately funded human spaceflight.",
+      "credit": "Don Ramey Logan (CC BY-SA 3.0)",
+      "verified": { "license": "CC BY-SA 3.0", "artist": "Don Ramey Logan", "dateOriginal": "2004-09-29" }
+    },
+    {
+      "id": "katrina",
+      "commonsFile": "Katrina-new-orleans-flooding3-2005.jpg",
+      "year": 2005,
+      "difficulty": 2,
+      "blurb": "New Orleans under water in the days after Hurricane Katrina.",
+      "credit": "Cmdr. Mark Moran / NOAA — public domain",
+      "verified": { "license": "Public domain", "artist": "Commander Mark Moran, NOAA", "dateOriginal": "2005-09-11" }
+    },
+    {
+      "id": "inauguration-09",
+      "commonsFile": "Inauguration crowd (3216821051).jpg",
+      "year": 2009,
+      "difficulty": 3,
+      "blurb": "The crowd on the National Mall for Barack Obama's first inauguration.",
+      "credit": "Steve Bott (CC BY 2.0)",
+      "verified": { "license": "CC BY 2.0", "artist": "Steve Bott", "dateOriginal": "2009-01-20" }
+    },
+    {
+      "id": "deepwater",
+      "commonsFile": "Deepwater Horizon offshore drilling unit on fire 2010.jpg",
+      "year": 2010,
+      "difficulty": 3,
+      "blurb": "Fireboats battle the Deepwater Horizon blaze in the Gulf of Mexico.",
+      "credit": "U.S. Coast Guard — public domain",
+      "verified": { "license": "Public domain", "artist": "U.S. Coast Guard", "dateOriginal": "2010-04-20" }
+    },
+    {
+      "id": "occupy",
+      "commonsFile": "Occupy Wall Street Crowd Size 2011 Shankbone.JPG",
+      "year": 2011,
+      "difficulty": 4,
+      "blurb": "Occupy Wall Street gathers near Zuccotti Park on the movement's first day.",
+      "credit": "David Shankbone (CC BY 3.0)",
+      "verified": { "license": "CC BY 3.0", "artist": "David Shankbone", "dateOriginal": "2011-09-17" }
+    },
+    {
+      "id": "london-2012",
+      "commonsFile": "2012 Summer Olympics opening ceremony, Olympic rings.jpg",
+      "year": 2012,
+      "difficulty": 3,
+      "blurb": "The rings are forged: opening ceremony of the London Summer Olympics.",
+      "credit": "Nick Webb (CC BY 2.0)",
+      "verified": { "license": "CC BY 2.0", "artist": "Nick Webb", "dateOriginal": "2012-07-27" }
+    },
+    {
+      "id": "pluto",
+      "commonsFile": "Pluto in True Color - High-Res.jpg",
+      "year": 2015,
+      "difficulty": 3,
+      "blurb": "Pluto in true color, captured by New Horizons during humanity's first flyby of the dwarf planet.",
+      "credit": "NASA / JHU-APL / SwRI — public domain",
+      "verified": { "license": "Public domain", "artist": "NASA/Johns Hopkins University APL/SwRI", "dateOriginal": "2015-07-14" }
+    },
+    {
+      "id": "ruth-1920",
+      "commonsFile": "1920 Babe Ruth by Paul Thompson.jpg",
+      "year": 1920,
+      "difficulty": 4,
+      "blurb": "Babe Ruth in his first season as a Yankee — the year the home run changed baseball.",
+      "credit": "Paul Thompson — public domain",
+      "verified": { "license": "Public domain", "artist": "Paul Thompson", "dateOriginal": "1920" }
+    },
+    {
+      "id": "jaws-of-death",
+      "commonsFile": "Into the Jaws of Death 23-0455M edit.jpg",
+      "year": 1944,
+      "difficulty": 2,
+      "blurb": "\"Into the Jaws of Death\": U.S. troops wade toward Omaha Beach on the morning of D-Day.",
+      "credit": "Robert F. Sargent, U.S. Coast Guard — public domain",
+      "verified": { "license": "Public domain", "artist": "Robert F. Sargent, USCG", "dateOriginal": "1944-06-06" }
+    },
+    {
+      "id": "vj-kiss",
+      "commonsFile": "Kissing the War Goodbye.jpg",
+      "year": 1945,
+      "difficulty": 1,
+      "blurb": "V-J Day in Times Square: a sailor's kiss as news of Japan's surrender breaks.",
+      "credit": "Victor Jorgensen, U.S. Navy — public domain",
+      "verified": { "license": "Public domain", "artist": "Victor Jorgensen", "dateOriginal": "1945-08-14" }
+    },
+    {
+      "id": "pershing-seoul",
+      "commonsFile": "M26 Pershing Seoul 1950.jpg",
+      "year": 1950,
+      "difficulty": 3,
+      "blurb": "A U.S. Marine Pershing tank in the streets of Seoul during the Korean War.",
+      "credit": "U.S. Navy / Naval History and Heritage Command — public domain",
+      "verified": { "license": "Public domain", "artist": "Naval Historical Center", "dateOriginal": "1950-09-26" }
+    },
+    {
+      "id": "space-needle-62",
+      "commonsFile": "Space Needle at World's Fair, 1962.jpg",
+      "year": 1962,
+      "difficulty": 3,
+      "blurb": "The Space Needle rises over the Century 21 Exposition — the Seattle World's Fair.",
+      "credit": "Seattle Municipal Archives — public domain",
+      "verified": { "license": "Public domain", "artist": "Seattle Municipal Archives", "dateOriginal": "1962-04" }
+    },
+    {
+      "id": "uh1-vietnam",
+      "commonsFile": "UH-1D helicopters in Vietnam 1966.jpg",
+      "year": 1966,
+      "difficulty": 3,
+      "blurb": "UH-1D helicopters lift infantry during Operation Wahiawa, northeast of Cu Chi, South Vietnam.",
+      "credit": "James K. F. Dung, SFC, U.S. Army — public domain",
+      "verified": { "license": "Public domain", "artist": "James K. F. Dung, SFC", "dateOriginal": "1966-05-16" }
+    },
+    {
+      "id": "atlantis-mir",
+      "commonsFile": "Atlantis docked to MIR - GPN-2000-001315.jpg",
+      "year": 1995,
+      "difficulty": 4,
+      "blurb": "Space Shuttle Atlantis docked to Russia's Mir station, photographed from a departing Soyuz.",
+      "credit": "NASA — public domain",
+      "verified": { "license": "Public domain", "artist": "NASA", "dateOriginal": "1995-07-04" }
+    },
+    {
+      "id": "womens-march-17",
+      "commonsFile": "Women's March 2017-01 (12).jpg",
+      "year": 2017,
+      "difficulty": 3,
+      "blurb": "The Women's March on Washington, the day after the presidential inauguration.",
+      "credit": "Voice of America — public domain",
+      "verified": { "license": "Public domain", "artist": "VOA", "dateOriginal": "2017-01-21" }
+    },
+    {
+      "id": "falcon-heavy",
+      "commonsFile": "Falcon Heavy Demo Mission (39337245145).jpg",
+      "year": 2018,
+      "difficulty": 3,
+      "blurb": "Falcon Heavy's first flight leaves Pad 39A — with a Roadster for a payload.",
+      "credit": "SpaceX (CC0)",
+      "verified": { "license": "CC0", "artist": "SpaceX", "dateOriginal": "2018-02-06" }
+    },
+    {
+      "id": "times-square-20",
+      "commonsFile": "Times Square empty.jpg",
+      "year": 2020,
+      "difficulty": 2,
+      "blurb": "Times Square, deserted at midday in the first spring of the pandemic.",
+      "credit": "Aaron Barlow (CC BY-SA 4.0)",
+      "verified": { "license": "CC BY-SA 4.0", "artist": "Aaron Barlow", "dateOriginal": "2020-04-18" }
+    },
+    {
+      "id": "perseverance-21",
+      "commonsFile": "PIA24542-MarsPerseveranceRover-IngenuityHelicopter-SelfPortrait-20210406.jpg",
+      "year": 2021,
+      "difficulty": 4,
+      "blurb": "Perseverance's selfie with the Ingenuity helicopter at Jezero Crater, Mars.",
+      "credit": "NASA / JPL-Caltech / MSSS",
+      "verified": { "license": "Attribution", "artist": "NASA/JPL-Caltech/MSSS", "dateOriginal": "2021-04-06" }
+    }
+  ],
+  "schedule": {
+    "2026-07-21": ["aldrin", "st-helens", "olympics-84", "times-square-73", "sf-earthquake"],
+    "2026-07-22": ["challenger", "kuwait-fires", "inauguration-09", "lindbergh", "subway-graffiti-73"],
+    "2026-07-23": ["titanic", "reagan-wall", "voyager-launch", "elvis-nixon", "unity-sts88"],
+    "2026-07-24": ["first-flight", "migrant-mother", "pluto", "pool-it-74", "occupy"],
+    "2026-07-25": ["earthrise", "mlk-march", "deepwater", "london-2012", "blue-marble"],
+    "2026-07-26": ["hindenburg", "katrina", "sally-ride", "sts-1", "spaceshipone"],
+    "2026-07-27": ["vj-kiss", "times-square-20", "space-needle-62", "falcon-heavy", "ruth-1920"],
+    "2026-07-28": ["jaws-of-death", "womens-march-17", "uh1-vietnam", "atlantis-mir", "perseverance-21"]
+  }
+}

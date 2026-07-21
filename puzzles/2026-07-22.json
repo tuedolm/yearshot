@@ -1,0 +1,36 @@
+{
+  "date": "2026-07-22",
+  "number": 2,
+  "rounds": [
+    {
+      "image": "assets/challenger.jpg",
+      "year": 1986,
+      "blurb": "Space Shuttle Challenger breaks apart 73 seconds after launch.",
+      "credit": "NASA / Kennedy Space Center \u2014 public domain"
+    },
+    {
+      "image": "assets/kuwait-fires.jpg",
+      "year": 1991,
+      "blurb": "A U.S. Navy F-14 over Kuwait's burning oil wells in the months after the Gulf War.",
+      "credit": "Lt. Steve Gozzo, U.S. Navy \u2014 public domain"
+    },
+    {
+      "image": "assets/inauguration-09.jpg",
+      "year": 2009,
+      "blurb": "The crowd on the National Mall for Barack Obama's first inauguration.",
+      "credit": "Steve Bott (CC BY 2.0)"
+    },
+    {
+      "image": "assets/lindbergh.jpg",
+      "year": 1927,
+      "blurb": "Charles Lindbergh with the Spirit of St. Louis, the year of the first solo transatlantic flight.",
+      "credit": "Library of Congress \u2014 public domain"
+    },
+    {
+      "image": "assets/subway-graffiti-73.jpg",
+      "year": 1973,
+      "blurb": "Riders in a spray-painted New York subway car, photographed for the EPA's Documerica project.",
+      "credit": "Erik Calonius / EPA Documerica, National Archives \u2014 public domain"
+    }
+  ]
+}

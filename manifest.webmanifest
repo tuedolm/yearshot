@@ -1,0 +1,12 @@
+{
+  "name": "Timeline — the daily photo dating game",
+  "short_name": "Timeline",
+  "description": "Five photographs. Guess the year each was taken. A new puzzle every day.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#101014",
+  "theme_color": "#101014",
+  "icons": [
+    { "src": "favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

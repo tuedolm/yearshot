@@ -1,0 +1,36 @@
+{
+  "date": "2026-07-26",
+  "number": 6,
+  "rounds": [
+    {
+      "image": "assets/hindenburg.jpg",
+      "year": 1937,
+      "blurb": "The airship Hindenburg burns while landing at Naval Air Station Lakehurst, New Jersey.",
+      "credit": "Sam Shere \u2014 public domain"
+    },
+    {
+      "image": "assets/katrina.jpg",
+      "year": 2005,
+      "blurb": "New Orleans under water in the days after Hurricane Katrina.",
+      "credit": "Cmdr. Mark Moran / NOAA \u2014 public domain"
+    },
+    {
+      "image": "assets/sally-ride.jpg",
+      "year": 1983,
+      "blurb": "Sally Ride on Challenger's flight deck during STS-7 \u2014 America's first woman in space.",
+      "credit": "NASA / National Archives \u2014 public domain"
+    },
+    {
+      "image": "assets/sts-1.jpg",
+      "year": 1981,
+      "blurb": "Space Shuttle Columbia lifts off on STS-1, the first flight of the Shuttle program.",
+      "credit": "NASA \u2014 public domain"
+    },
+    {
+      "image": "assets/spaceshipone.jpg",
+      "year": 2004,
+      "blurb": "Test pilot Mike Melvill celebrates atop SpaceShipOne after the first privately funded human spaceflight.",
+      "credit": "Don Ramey Logan (CC BY-SA 3.0)"
+    }
+  ]
+}

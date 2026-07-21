@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timeline — the daily photo dating game</title>
+<meta name="description" content="Five photographs. Guess the year each was taken. A new puzzle every day.">
+<meta property="og:title" content="Timeline — the daily photo dating game">
+<meta property="og:description" content="Five photographs. Guess the year each was taken. A new puzzle every day.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#101014">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div id="app">
+
+  <header id="header">
+    <div class="wordmark" id="wordmark">TIMELINE</div>
+    <div class="header-meta">
+      <span id="puzzle-label">#—</span>
+      <span class="dot-sep">·</span>
+      <span id="round-label">Round 1 of 5</span>
+      <span class="dot-sep">·</span>
+      <span id="score-label">0 pts</span>
+    </div>
+    <div class="header-actions">
+      <button id="stats-btn" class="icon-btn" aria-label="Statistics" title="Statistics">▤</button>
+      <button id="help-btn" class="icon-btn" aria-label="How to play" title="How to play">?</button>
+    </div>
+  </header>
+
+  <main id="stage">
+    <div id="photo-frame">
+      <img id="photo" alt="Daily puzzle photograph" draggable="false">
+      <div id="photo-loading" hidden>Loading photograph…</div>
+      <div id="no-puzzle" hidden>
+        <p>No puzzle scheduled for today.</p>
+        <p class="no-puzzle-sub">Check back tomorrow — or if you run this game, top up the puzzle bank.</p>
+      </div>
+    </div>
+  </main>
+
+  <section id="controls" aria-label="Year guess controls" hidden>
+    <div id="year-readout" aria-hidden="true">1900</div>
+
+    <div id="slider" role="slider" tabindex="0"
+         aria-label="Guess the year"
+         aria-valuemin="1826" aria-valuemax="2026" aria-valuenow="1900">
+      <div id="slider-track">
+        <div id="ticks"></div>
+        <div id="thumb"></div>
+      </div>
+      <div id="tick-labels"></div>
+    </div>
+
+    <div id="hint-chip" hidden></div>
+    <div class="controls-buttons">
+      <button id="hint-btn" class="ghost-btn" title="Reveals the decade, costs 40% of this round's points">Hint · −40%</button>
+      <button id="guess-btn" class="primary-btn">Lock it in</button>
+    </div>
+  </section>
+
+  <section id="reveal" hidden>
+    <div class="reveal-verdict" id="reveal-verdict"></div>
+    <div class="reveal-years">
+      <div class="reveal-year-block">
+        <div class="reveal-year-label">Your guess</div>
+        <div class="reveal-year" id="reveal-guess"></div>
+      </div>
+      <div class="reveal-error" id="reveal-error"></div>
+      <div class="reveal-year-block">
+        <div class="reveal-year-label">Actual</div>
+        <div class="reveal-year accent" id="reveal-actual"></div>
+      </div>
+    </div>
+    <div class="reveal-points" id="reveal-points"></div>
+    <p class="reveal-blurb" id="reveal-blurb"></p>
+    <p class="reveal-credit" id="reveal-credit"></p>
+    <button id="next-btn" class="primary-btn">Next photo</button>
+  </section>
+
+  <section id="results" hidden>
+    <div class="results-title"><span id="results-name">Timeline</span> <span id="results-number">#—</span></div>
+    <div class="results-grid" id="results-grid"></div>
+    <div class="results-total" id="results-total"></div>
+    <div class="results-streak" id="results-streak" hidden></div>
+    <button id="share-btn" class="primary-btn">Copy result</button>
+    <div id="share-feedback" aria-live="polite"></div>
+    <div class="results-breakdown" id="results-breakdown"></div>
+    <p class="results-comeback">Next puzzle in <span id="countdown">—</span></p>
+    <p class="results-about"><a href="about.html">About · privacy · photo credits</a></p>
+  </section>
+
+  <div class="modal-backdrop" id="help-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="help-title">
+      <h2 id="help-title">How to play</h2>
+      <ol class="help-steps">
+        <li>Look at the photograph. Read everything — clothes, cars, signs, technology, film grain.</li>
+        <li>Drag the slider to the year you think it was taken. Arrow keys work too, one year at a time.</li>
+        <li>Lock it in. Closer guesses score more: an exact year is worth 5,000 points, and points fall off fast as you miss.</li>
+      </ol>
+      <p class="help-note">Five photographs a day, 25,000 points possible. Everyone gets the same puzzle. Stuck? A hint reveals the decade — but costs 40% of that round's points. Come back tomorrow for the next one — and share your grid, it spoils nothing.</p>
+      <button id="help-close" class="primary-btn">Play</button>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="stats-modal" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="stats-title">
+      <h2 id="stats-title">Statistics</h2>
+      <div class="stat-tiles">
+        <div class="stat-tile"><div class="stat-value" id="stat-games">0</div><div class="stat-label">Played</div></div>
+        <div class="stat-tile"><div class="stat-value" id="stat-avg">—</div><div class="stat-label">Avg score</div></div>
+        <div class="stat-tile"><div class="stat-value" id="stat-best">—</div><div class="stat-label">Best</div></div>
+        <div class="stat-tile"><div class="stat-value" id="stat-streak">0</div><div class="stat-label">Streak</div></div>
+        <div class="stat-tile"><div class="stat-value" id="stat-max-streak">0</div><div class="stat-label">Max streak</div></div>
+      </div>
+      <h3 class="stats-subhead">Round accuracy</h3>
+      <div class="band-bars" id="band-bars"></div>
+      <button id="stats-close" class="primary-btn">Close</button>
+    </div>
+  </div>
+
+</div>
+<script src="app.js"></script>
+</body>
+</html>

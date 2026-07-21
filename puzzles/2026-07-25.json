@@ -1,0 +1,36 @@
+{
+  "date": "2026-07-25",
+  "number": 5,
+  "rounds": [
+    {
+      "image": "assets/earthrise.jpg",
+      "year": 1968,
+      "blurb": "\"Earthrise,\" taken from lunar orbit during Apollo 8 \u2014 the first crewed mission to leave Earth orbit.",
+      "credit": "Bill Anders / NASA \u2014 public domain"
+    },
+    {
+      "image": "assets/mlk-march.jpg",
+      "year": 1963,
+      "blurb": "Martin Luther King Jr. at the March on Washington for Jobs and Freedom.",
+      "credit": "Rowland Scherman / U.S. Information Agency \u2014 public domain"
+    },
+    {
+      "image": "assets/deepwater.jpg",
+      "year": 2010,
+      "blurb": "Fireboats battle the Deepwater Horizon blaze in the Gulf of Mexico.",
+      "credit": "U.S. Coast Guard \u2014 public domain"
+    },
+    {
+      "image": "assets/london-2012.jpg",
+      "year": 2012,
+      "blurb": "The rings are forged: opening ceremony of the London Summer Olympics.",
+      "credit": "Nick Webb (CC BY 2.0)"
+    },
+    {
+      "image": "assets/blue-marble.jpg",
+      "year": 1972,
+      "blurb": "\"The Blue Marble,\" taken by the crew of Apollo 17 \u2014 the last crewed lunar mission \u2014 on the way to the Moon.",
+      "credit": "NASA / Apollo 17 crew \u2014 public domain"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "date": "2026-07-23",
+  "number": 3,
+  "rounds": [
+    {
+      "image": "assets/titanic.jpg",
+      "year": 1912,
+      "blurb": "RMS Titanic departs Southampton on her maiden \u2014 and only \u2014 voyage.",
+      "credit": "F.G.O. Stuart \u2014 public domain"
+    },
+    {
+      "image": "assets/reagan-wall.jpg",
+      "year": 1987,
+      "blurb": "\"Tear down this wall\" \u2014 Ronald Reagan speaks at the Brandenburg Gate in West Berlin.",
+      "credit": "White House Photographic Office / DPLA \u2014 public domain"
+    },
+    {
+      "image": "assets/voyager-launch.jpg",
+      "year": 1977,
+      "blurb": "Voyager 2 leaves Earth aboard a Titan IIIE \u2014 carrying the Golden Record toward interstellar space.",
+      "credit": "NASA/MSFC \u2014 public domain"
+    },
+    {
+      "image": "assets/elvis-nixon.jpg",
+      "year": 1970,
+      "blurb": "Elvis Presley meets Richard Nixon in the Oval Office \u2014 the National Archives' most-requested photograph.",
+      "credit": "Ollie Atkins / White House \u2014 public domain"
+    },
+    {
+      "image": "assets/unity-sts88.jpg",
+      "year": 1998,
+      "blurb": "The International Space Station begins: the Unity node rides in Endeavour's payload bay before mating with Zarya.",
+      "credit": "NASA \u2014 public domain"
+    }
+  ]
+}

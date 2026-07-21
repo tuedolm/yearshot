@@ -1,0 +1,36 @@
+{
+  "date": "2026-07-21",
+  "number": 1,
+  "rounds": [
+    {
+      "image": "assets/aldrin.jpg",
+      "year": 1969,
+      "blurb": "Buzz Aldrin on the Sea of Tranquility, photographed by Neil Armstrong during Apollo 11.",
+      "credit": "Neil Armstrong / NASA \u2014 public domain"
+    },
+    {
+      "image": "assets/st-helens.jpg",
+      "year": 1980,
+      "blurb": "Mount St. Helens erupts on the morning of May 18 \u2014 the deadliest volcanic event in U.S. history.",
+      "credit": "Austin Post / USGS \u2014 public domain"
+    },
+    {
+      "image": "assets/olympics-84.jpg",
+      "year": 1984,
+      "blurb": "Opening ceremony of the Summer Olympics at the Los Angeles Memorial Coliseum.",
+      "credit": "U.S. Air Force \u2014 public domain"
+    },
+    {
+      "image": "assets/times-square-73.jpg",
+      "year": 1973,
+      "blurb": "Times Square in high summer, photographed for the EPA's Documerica project.",
+      "credit": "Dan McCoy / EPA Documerica, National Archives \u2014 public domain"
+    },
+    {
+      "image": "assets/sf-earthquake.jpg",
+      "year": 1906,
+      "blurb": "Residents of Sacramento Street watch the fires after the San Francisco earthquake.",
+      "credit": "Arnold Genthe \u2014 public domain"
+    }
+  ]
+}

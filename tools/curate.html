@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timeline curation tool</title>
+<style>
+:root { --bg:#101014; --surface:#1a1a20; --s2:#24242c; --text:#f2f0eb; --dim:#9a97a0; --accent:#e8a33d; --green:#4caf6e; --red:#e05252; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--bg); color:var(--text); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; padding:24px; }
+h1 { font-family:Georgia,serif; letter-spacing:2px; font-size:22px; margin-bottom:4px; }
+.sub { color:var(--dim); font-size:13px; margin-bottom:20px; }
+.grid { display:grid; grid-template-columns: 1fr 1fr; gap:24px; max-width:1200px; }
+.panel { background:var(--surface); border-radius:12px; padding:20px; }
+label { display:block; font-size:11px; text-transform:uppercase; letter-spacing:1px; color:var(--dim); margin:12px 0 4px; }
+input, textarea, select { width:100%; background:var(--s2); border:1px solid #34343e; color:var(--text); border-radius:8px; padding:9px 10px; font-size:14px; font-family:inherit; }
+textarea { resize:vertical; min-height:56px; }
+button { background:var(--accent); color:var(--bg); border:none; border-radius:8px; padding:10px 20px; font-size:14px; font-weight:600; cursor:pointer; margin-top:14px; }
+button.secondary { background:var(--s2); color:var(--text); border:1px solid #34343e; }
+button:disabled { opacity:.4; cursor:default; }
+#preview { width:100%; max-height:260px; object-fit:contain; background:var(--s2); border-radius:8px; margin-top:12px; display:none; }
+#meta { font-size:12px; color:var(--dim); margin-top:8px; white-space:pre-wrap; }
+#meta .ok { color:var(--green); } #meta .bad { color:var(--red); }
+.lib-row { display:grid; grid-template-columns:56px 44px 1fr auto auto; gap:10px; align-items:center; background:var(--s2); border-radius:8px; padding:8px 10px; margin-top:8px; font-size:13px; }
+.lib-row img { width:56px; height:38px; object-fit:cover; border-radius:4px; }
+.lib-row .year { font-weight:700; font-variant-numeric:tabular-nums; }
+.lib-row .del { background:none; border:none; color:var(--red); cursor:pointer; font-size:16px; margin:0; padding:4px; }
+.lib-row .diff { color:var(--dim); }
+.toolbar { display:flex; gap:10px; flex-wrap:wrap; }
+#count { color:var(--dim); font-size:13px; margin-top:10px; }
+</style>
+</head>
+<body>
+<h1>CURATION</h1>
+<p class="sub">Paste a Wikimedia Commons file name or URL → fetch → verify → add. Export merges into <code>content/library.json</code> by hand (or replace the images array wholesale). Work is saved in this browser's localStorage.</p>
+
+<div class="grid">
+  <div class="panel">
+    <label for="file-input">Commons file name or URL</label>
+    <input id="file-input" placeholder='e.g. File:Elvis-nixon.jpg or a commons.wikimedia.org link'>
+    <button id="fetch-btn">Fetch metadata</button>
+    <img id="preview" alt="preview">
+    <div id="meta"></div>
+
+    <label for="id-input">id (kebab-case)</label>
+    <input id="id-input" placeholder="e.g. elvis-nixon">
+    <label for="year-input">Exact year (non-negotiable — no circa)</label>
+    <input id="year-input" type="number" min="1826" max="2100">
+    <label for="diff-input">Difficulty</label>
+    <select id="diff-input">
+      <option value="1">1 — gimme (iconic, instantly datable)</option>
+      <option value="2">2 — easy</option>
+      <option value="3" selected>3 — medium</option>
+      <option value="4">4 — hard (era-reading required)</option>
+      <option value="5">5 — devious (feels like the wrong decade)</option>
+    </select>
+    <label for="blurb-input">Reveal blurb (one line)</label>
+    <textarea id="blurb-input"></textarea>
+    <label for="credit-input">Credit line (shown on reveal)</label>
+    <input id="credit-input">
+    <button id="add-btn" disabled>Add to library</button>
+  </div>
+
+  <div class="panel">
+    <div class="toolbar">
+      <button id="export-btn" class="secondary">Export images JSON</button>
+      <button id="import-btn" class="secondary">Import library.json</button>
+      <input type="file" id="import-file" accept=".json" style="display:none">
+      <button id="clear-btn" class="secondary">Clear all</button>
+    </div>
+    <div id="count"></div>
+    <div id="lib-list"></div>
+  </div>
+</div>
+
+<script>
+"use strict";
+const KEY = "tl.curation";
+let lib = [];
+try { lib = JSON.parse(localStorage.getItem(KEY)) || []; } catch { lib = []; }
+let fetched = null; // metadata of the last fetched file
+
+const $ = (id) => document.getElementById(id);
+
+function thumbUrl(file, w) {
+  return "https://commons.wikimedia.org/wiki/Special:FilePath/" + encodeURIComponent(file) + "?width=" + (w || 300);
+}
+
+function parseFileName(raw) {
+  raw = raw.trim();
+  try {
+    if (raw.includes("commons.wikimedia.org")) {
+      const u = new URL(raw);
+      const path = decodeURIComponent(u.pathname);
+      const m = path.match(/(?:File:|FilePath\/)(.+)$/);
+      if (m) return m[1];
+    }
+  } catch { /* not a URL, treat as a name */ }
+  return raw.replace(/^File:/, "");
+}
+
+$("fetch-btn").addEventListener("click", async () => {
+  const file = parseFileName($("file-input").value);
+  if (!file) return;
+  $("meta").textContent = "Fetching…";
+  const url = "https://commons.wikimedia.org/w/api.php?action=query&format=json&origin=*"
+    + "&prop=imageinfo&iiprop=extmetadata%7Csize"
+    + "&iiextmetadatafilter=LicenseShortName%7CArtist%7CDateTimeOriginal%7CImageDescription"
+    + "&titles=" + encodeURIComponent("File:" + file);
+  try {
+    const j = await (await fetch(url)).json();
+    const page = Object.values(j.query.pages)[0];
+    if (page.missing !== undefined) { $("meta").innerHTML = '<span class="bad">File not found on Commons.</span>'; return; }
+    const ii = page.imageinfo[0];
+    const md = ii.extmetadata || {};
+    const strip = (s) => (s || "").replace(/<[^>]*>/g, "").replace(/\s+/g, " ").trim();
+    const lic = md.LicenseShortName ? md.LicenseShortName.value : "UNKNOWN";
+    const artist = strip(md.Artist && md.Artist.value);
+    const dateRaw = strip(md.DateTimeOriginal && md.DateTimeOriginal.value);
+    const free = /public domain|^cc0$|^cc by(-sa)? \d/i.test(lic);
+    const bigEnough = ii.width >= 1200;
+    fetched = { file, license: lic, artist, dateRaw, width: ii.width, height: ii.height };
+    $("preview").src = thumbUrl(file, 600);
+    $("preview").style.display = "block";
+    $("meta").innerHTML =
+      `License: <span class="${free ? "ok" : "bad"}">${lic}</span>` +
+      ` · ${ii.width}×${ii.height} <span class="${bigEnough ? "ok" : "bad"}">${bigEnough ? "ok" : "too small"}</span>` +
+      `\nArtist: ${artist || "?"}\nDate field: ${dateRaw || "?"} — verify the year independently before trusting it.`;
+    const yearGuess = (dateRaw.match(/\b(1[89]\d{2}|20\d{2})\b/) || [])[0];
+    if (yearGuess) $("year-input").value = yearGuess;
+    $("id-input").value = file.toLowerCase().replace(/\.[a-z]+$/i, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 40);
+    if (artist) $("credit-input").value = artist + (/public domain/i.test(lic) ? " — public domain" : ` (${lic})`);
+    $("add-btn").disabled = !free || !bigEnough;
+  } catch (e) {
+    $("meta").innerHTML = '<span class="bad">Fetch failed: ' + e.message + "</span>";
+  }
+});
+
+$("add-btn").addEventListener("click", () => {
+  const year = parseInt($("year-input").value, 10);
+  if (!fetched || !year || !$("blurb-input").value.trim() || !$("id-input").value.trim()) {
+    alert("Need id, exact year, and a blurb."); return;
+  }
+  lib.push({
+    id: $("id-input").value.trim(),
+    commonsFile: fetched.file,
+    year,
+    difficulty: parseInt($("diff-input").value, 10),
+    blurb: $("blurb-input").value.trim(),
+    credit: $("credit-input").value.trim(),
+    verified: { license: fetched.license, artist: fetched.artist, dateOriginal: fetched.dateRaw },
+  });
+  save();
+  fetched = null;
+  for (const id of ["file-input", "id-input", "year-input", "blurb-input", "credit-input"]) $(id).value = "";
+  $("preview").style.display = "none";
+  $("meta").textContent = "";
+  $("add-btn").disabled = true;
+});
+
+function save() { localStorage.setItem(KEY, JSON.stringify(lib)); render(); }
+
+function render() {
+  $("count").textContent = lib.length + " image(s) — " + Math.floor(lib.length / 5) + " full day(s) of puzzles";
+  const list = $("lib-list");
+  list.innerHTML = "";
+  for (let i = 0; i < lib.length; i++) {
+    const img = lib[i];
+    const row = document.createElement("div");
+    row.className = "lib-row";
+    const thumb = document.createElement("img");
+    thumb.src = thumbUrl(img.commonsFile, 120);
+    const year = document.createElement("span");
+    year.className = "year";
+    year.textContent = img.year;
+    const desc = document.createElement("span");
+    desc.textContent = img.id;
+    const diff = document.createElement("span");
+    diff.className = "diff";
+    diff.textContent = "d" + img.difficulty;
+    const del = document.createElement("button");
+    del.className = "del";
+    del.textContent = "✕";
+    del.addEventListener("click", () => { lib.splice(i, 1); save(); });
+    row.append(thumb, year, desc, diff, del);
+    list.appendChild(row);
+  }
+}
+
+$("export-btn").addEventListener("click", () => {
+  const blob = new Blob([JSON.stringify(lib, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "curated-images.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+$("import-btn").addEventListener("click", () => $("import-file").click());
+$("import-file").addEventListener("change", async (e) => {
+  const file = e.target.files[0];
+  if (!file) return;
+  const data = JSON.parse(await file.text());
+  lib = Array.isArray(data) ? data : (data.images || []);
+  save();
+});
+
+$("clear-btn").addEventListener("click", () => {
+  if (confirm("Clear the whole working library?")) { lib = []; save(); }
+});
+
+render();
+</script>
+</body>
+</html>

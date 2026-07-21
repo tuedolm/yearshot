@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About — Timeline</title>
+<meta name="description" content="About Timeline: how it works, privacy, and photo credits.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<style>
+body { overflow: auto; }
+#about {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 32px 20px 64px;
+  line-height: 1.6;
+}
+#about h1 { font-family: Georgia, serif; letter-spacing: 3px; font-size: 26px; margin-bottom: 6px; }
+#about h2 { font-family: Georgia, serif; font-size: 19px; margin: 28px 0 8px; }
+#about p, #about li { font-size: 15px; color: var(--text); }
+#about .dim { color: var(--text-dim); font-size: 13px; }
+#about a { color: var(--accent); }
+#about ul { padding-left: 20px; }
+.credit-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--track);
+  font-size: 13px;
+}
+.credit-row .file { color: var(--text); }
+.credit-row .lic { color: var(--text-dim); white-space: nowrap; }
+.back { display: inline-block; margin-bottom: 20px; font-size: 14px; }
+</style>
+</head>
+<body>
+<div id="about">
+  <a class="back" href="./">← Back to today's puzzle</a>
+  <h1>ABOUT</h1>
+  <p class="dim">Five photographs a day. Guess the year each was taken.</p>
+
+  <h2>Privacy</h2>
+  <p>There are no accounts, no cookies, and no trackers. Your streak, stats,
+  and today's progress are stored only in your browser's localStorage and
+  never leave your device. If anonymous score reporting is enabled, the game
+  sends count-only events (round error and points, with no user identifier,
+  no IP retention, and no fingerprinting) so the daily difficulty can be
+  tuned. Clearing your browser data resets everything.</p>
+
+  <h2>The photographs</h2>
+  <p>Every photograph is a public-domain or Creative Commons–licensed work,
+  drawn from institutional archives (Library of Congress, U.S. National
+  Archives, NASA, NOAA, USGS) and the Wikimedia Commons community. Each
+  reveal shows the photographer and license; the full list for the current
+  library is below. If you are a rights holder with a concern, open an issue
+  on the project repository and the image will be reviewed promptly.</p>
+
+  <div id="credits"><p class="dim">Loading credits…</p></div>
+
+  <h2>Contact</h2>
+  <p class="dim">This is a small independent game in playtesting. Feedback is
+  gold: how did the difficulty feel, and did you share your grid?</p>
+</div>
+<script>
+fetch("content/library.json")
+  .then((r) => r.json())
+  .then((lib) => {
+    const wrap = document.getElementById("credits");
+    wrap.innerHTML = "";
+    for (const img of lib.images.slice().sort((a, b) => a.credit.localeCompare(b.credit))) {
+      const row = document.createElement("div");
+      row.className = "credit-row";
+      const file = document.createElement("span");
+      file.className = "file";
+      const a = document.createElement("a");
+      a.href = "https://commons.wikimedia.org/wiki/File:" + encodeURIComponent(img.commonsFile);
+      a.textContent = img.commonsFile.length > 60 ? img.commonsFile.slice(0, 57) + "…" : img.commonsFile;
+      a.rel = "noopener";
+      file.appendChild(a);
+      const lic = document.createElement("span");
+      lic.className = "lic";
+      lic.textContent = img.credit;
+      row.append(file, lic);
+      wrap.appendChild(row);
+    }
+  })
+  .catch(() => {
+    document.getElementById("credits").innerHTML =
+      '<p class="dim">Credits unavailable — every image’s credit is shown on its reveal in the game.</p>';
+  });
+</script>
+</body>
+</html>
