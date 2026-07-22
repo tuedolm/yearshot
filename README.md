@@ -34,13 +34,28 @@ and opens a GitHub issue when fewer than 14 days remain.
 The refill loop:
 
 ```sh
-# 1. open tools/curate.html, search an event, review, add
-#    (serve locally: python3 -m http.server 8471)
-python3 tools/schedule_next.py            # 2. deal into days, easy -> hard
+python3 tools/auto_curate.py --gaps        # what is thin
+python3 tools/auto_curate.py --count 20    # prepare candidates
+# open tools/review.html  -> approve, export approved-batch.json
+# stories, blurbs and keywords are written by hand from each sourceSummary
+python3 tools/schedule_next.py             # deal into days, easy -> hard
 python3 tools/generate_puzzles.py && python3 tools/fetch_images.py
-git add -A && git commit && git push      # 3. ship
-python3 tools/check_bank.py               # anytime: days left
+git add -A && git commit && git push
+python3 tools/check_bank.py                # anytime: days left
 ```
+
+`auto_curate.py` prepares everything except the words: it resolves the
+photograph, verifies licence and resolution, corroborates the year, infers
+topic and country, and estimates difficulty from Wikipedia pageviews (famous
+event, more views, easier round). Candidate events are scored to favour the
+countries and topics the library is short of.
+
+**Check the years before approving.** In testing the pipeline confidently
+produced a photograph of the 1968 invasion of Czechoslovakia dated **2025** —
+the file was a collage assembled that year — and offered a 1938 portrait for
+an article about 1947. Both are now rejected, because a year is only accepted
+when the article itself mentions it, but the class of error is the reason
+approval stays human.
 
 ### Curation starts from an event, not an image
 

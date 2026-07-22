@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yearshot — approve candidates</title>
+<meta name="robots" content="noindex">
+<style>
+:root{--bg:#101014;--surface:#1a1a20;--s2:#24242c;--line:#34343e;--text:#f2f0eb;
+  --dim:#9a97a0;--mute:#6b6872;--accent:#e8a33d;--green:#4caf6e;--red:#e05252;--blue:#3987e5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font:15px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 20px 90px}
+h1{font-family:Georgia,serif;letter-spacing:3px;font-size:21px}
+.sub{color:var(--dim);font-size:13px;margin:4px 0 16px;line-height:1.6}
+.sub code{background:var(--s2);padding:1px 5px;border-radius:4px;font-size:12px}
+.bar{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:16px}
+button{background:var(--accent);color:var(--bg);border:none;border-radius:8px;padding:9px 16px;
+  font:inherit;font-size:14px;font-weight:600;cursor:pointer}
+button.sec{background:var(--s2);color:var(--text);border:1px solid var(--line)}
+#count{font-size:13px;color:var(--dim)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.c{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+  display:flex;flex-direction:column}
+.c.yes{border-color:var(--green)}
+.c.no{opacity:.35}
+.c img{width:100%;height:190px;object-fit:cover;background:#000;cursor:zoom-in;display:block}
+.b{padding:11px 13px;flex:1;font-size:12px;color:var(--dim);line-height:1.5}
+.hd{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:6px}
+.y{font-size:19px;font-weight:700;color:var(--text);font-variant-numeric:tabular-nums}
+.p{font-size:10px;text-transform:uppercase;letter-spacing:.5px;padding:2px 7px;border-radius:999px;
+  background:#2e2e37;color:var(--dim)}
+.p.c{background:rgba(57,135,229,.16);color:#7db3f0}
+.p.d{background:rgba(232,163,61,.16);color:var(--accent)}
+.t{color:var(--text);font-weight:600;font-size:13px;margin-bottom:5px}
+.s{max-height:76px;overflow:auto}
+.acts{display:flex;gap:8px;padding:0 13px 13px}
+.acts button{flex:1;padding:8px 0;font-size:13px}
+.acts .no{background:transparent;color:var(--red);border:1px solid var(--line)}
+.warnrow{color:var(--accent);font-size:11px;margin-top:5px}
+#lightbox{position:fixed;inset:0;background:rgba(0,0,0,.93);display:none;align-items:center;
+  justify-content:center;z-index:50;cursor:zoom-out;padding:24px}
+#lightbox.on{display:flex}
+#lightbox img{max-width:100%;max-height:92vh;object-fit:contain;border-radius:6px}
+.empty{color:var(--mute);padding:30px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>APPROVE CANDIDATES</h1>
+  <p class="sub">
+    Prepared by <code>tools/auto_curate.py</code> — photograph, year, licence, topic, country and
+    difficulty are filled in; the words are not. <strong>Check the year against the article
+    before approving</strong>: it is the one thing that cannot be wrong, and automation gets it
+    wrong in interesting ways. Approve, then hand the export over for story writing.
+  </p>
+
+  <div class="bar">
+    <button id="load" class="sec">Load candidates</button>
+    <button id="all" class="sec">Approve all shown</button>
+    <button id="export">Export approved</button>
+    <span id="count"></span>
+  </div>
+  <div class="grid" id="grid"></div>
+</div>
+<div id="lightbox"><img alt="full size"></div>
+
+<script>
+"use strict";
+const $ = (id) => document.getElementById(id);
+const KEY = "ys.approved";
+let items = [], decisions = {};
+try { decisions = JSON.parse(localStorage.getItem(KEY)) || {}; } catch { decisions = {}; }
+
+const thumb = (f, w) => "https://commons.wikimedia.org/wiki/Special:FilePath/"
+  + encodeURIComponent(f) + "?width=" + w;
+
+function save() { localStorage.setItem(KEY, JSON.stringify(decisions)); render(); }
+
+function render() {
+  const yes = items.filter((i) => decisions[i.id] === "yes");
+  $("count").textContent = items.length
+    ? `${items.length} candidates · ${yes.length} approved · ${Math.floor(yes.length / 5)} full day(s)`
+    : "";
+  const g = $("grid"); g.innerHTML = "";
+  if (!items.length) { g.innerHTML = '<div class="empty">Run tools/auto_curate.py, then Load candidates.</div>'; return; }
+
+  for (const it of items) {
+    const c = document.createElement("div");
+    c.className = "c" + (decisions[it.id] === "yes" ? " yes" : decisions[it.id] === "no" ? " no" : "");
+
+    const im = document.createElement("img");
+    im.src = thumb(it.commonsFile, 500); im.loading = "lazy";
+    im.onclick = () => { $("lightbox").querySelector("img").src = thumb(it.commonsFile, 1600);
+                         $("lightbox").classList.add("on"); };
+
+    const b = document.createElement("div"); b.className = "b";
+    const hd = document.createElement("div"); hd.className = "hd";
+    hd.innerHTML = `<span class="y">${it.year}</span>`
+      + `<span class="p d">tier ${it.difficulty}</span>`
+      + `<span class="p">${it.topic}</span>`
+      + `<span class="p c">${it.country || "no country"}</span>`;
+    const t = document.createElement("div"); t.className = "t"; t.textContent = it.sourceArticle;
+    const s = document.createElement("div"); s.className = "s"; s.textContent = it.sourceSummary;
+    b.append(hd, t, s);
+
+    const warn = [];
+    if (!it.country) warn.push("country not detected");
+    if (it._width && it._width < 1200) warn.push(`soft ${it._width}×${it._height}`);
+    if (warn.length) {
+      const w = document.createElement("div"); w.className = "warnrow";
+      w.textContent = "! " + warn.join(" · ");
+      b.appendChild(w);
+    }
+
+    const a = document.createElement("div"); a.className = "acts";
+    const ok = document.createElement("button");
+    ok.textContent = decisions[it.id] === "yes" ? "Approved" : "Approve";
+    ok.onclick = () => { decisions[it.id] = "yes"; save(); };
+    const no = document.createElement("button"); no.className = "no"; no.textContent = "Reject";
+    no.onclick = () => { decisions[it.id] = "no"; save(); };
+    a.append(ok, no);
+
+    c.append(im, b, a);
+    g.appendChild(c);
+  }
+}
+
+$("load").addEventListener("click", async () => {
+  try {
+    items = await (await fetch("candidates.json", { cache: "no-cache" })).json();
+    render();
+  } catch { $("count").textContent = "no candidates.json — run tools/auto_curate.py first"; }
+});
+
+$("all").addEventListener("click", () => {
+  if (!confirm("Approve every candidate shown? Check the years first.")) return;
+  for (const i of items) if (!decisions[i.id]) decisions[i.id] = "yes";
+  save();
+});
+
+$("export").addEventListener("click", () => {
+  const out = items.filter((i) => decisions[i.id] === "yes");
+  if (!out.length) { alert("Nothing approved yet."); return; }
+  const blob = new Blob([JSON.stringify(out, null, 2)], { type: "application/json" });
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = "approved-batch.json"; a.click();
+  URL.revokeObjectURL(a.href);
+});
+
+$("lightbox").addEventListener("click", () => $("lightbox").classList.remove("on"));
+document.addEventListener("keydown", (e) => { if (e.key === "Escape") $("lightbox").classList.remove("on"); });
+render();
+</script>
+</body>
+</html>
