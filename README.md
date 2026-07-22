@@ -40,6 +40,11 @@ public launch.
   should land in 12,000–18,000).
 - **`ANCHORS`** — non-linear slider mapping; 1970–present gets ~58% of travel.
 - **`band()`** — share-grid thresholds: 🟩 ≤5 yrs, 🟨 ≤10, 🟧 ≤20, 🟥 ≤40, ⬛ wild.
+- **`HINT_TIERS`** — progressive hints: era ×0.8, keywords ×0.7, decade ×0.6.
+  Tiers must stay ordered weakest→strongest *and* cheapest→dearest, or a tier
+  becomes a dominated choice nobody takes. Keywords live in `library.json` and
+  must be context clues only — a keyword naming the event would make tier 2
+  stronger than tier 3 and break the ladder.
 - **`CONFIG.name`** — single point of rename (also update index.html meta,
   manifest.webmanifest, and the OG image).
 
