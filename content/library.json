@@ -882,44 +882,44 @@
     "2026-07-23": [
       "titanic",
       "reagan-wall",
-      "voyager-launch",
-      "elvis-nixon",
-      "unity-sts88"
-    ],
-    "2026-07-24": [
-      "first-flight",
-      "migrant-mother",
-      "pluto",
-      "pool-it-74",
+      "pershing-seoul",
+      "blue-marble",
       "occupy"
     ],
-    "2026-07-25": [
-      "earthrise",
-      "mlk-march",
-      "deepwater",
+    "2026-07-24": [
+      "vj-kiss",
+      "jaws-of-death",
       "london-2012",
-      "blue-marble"
+      "unity-sts88",
+      "spaceshipone"
+    ],
+    "2026-07-25": [
+      "first-flight",
+      "earthrise",
+      "uh1-vietnam",
+      "ruth-1920",
+      "atlantis-mir"
     ],
     "2026-07-26": [
       "hindenburg",
-      "katrina",
-      "sally-ride",
-      "sts-1",
-      "spaceshipone"
+      "times-square-20",
+      "elvis-nixon",
+      "womens-march-17",
+      "perseverance-21"
     ],
     "2026-07-27": [
-      "vj-kiss",
-      "times-square-20",
-      "space-needle-62",
-      "falcon-heavy",
-      "ruth-1920"
+      "migrant-mother",
+      "mlk-march",
+      "sally-ride",
+      "pool-it-74",
+      "deepwater"
     ],
     "2026-07-28": [
-      "jaws-of-death",
-      "womens-march-17",
-      "uh1-vietnam",
-      "atlantis-mir",
-      "perseverance-21"
+      "katrina",
+      "pluto",
+      "space-needle-62",
+      "falcon-heavy",
+      "voyager-launch"
     ]
   }
 }

@@ -27,39 +27,39 @@
       ]
     },
     {
-      "image": "assets/voyager-launch.jpg",
-      "year": 1977,
-      "blurb": "Voyager 2 leaves Earth aboard a Titan IIIE \u2014 carrying the Golden Record toward interstellar space.",
-      "credit": "NASA/MSFC \u2014 public domain",
-      "story": "Voyager 2 actually launched sixteen days before Voyager 1, on a slower path that let it visit all four outer planets \u2014 an alignment that comes once every 176 years. Nearly five decades on, it still calls home from interstellar space.",
+      "image": "assets/pershing-seoul.jpg",
+      "year": 1950,
+      "blurb": "A U.S. Marine Pershing tank in the streets of Seoul during the Korean War.",
+      "credit": "U.S. Navy / Naval History and Heritage Command \u2014 public domain",
+      "story": "Three months after North Korea's invasion nearly pushed UN forces off the peninsula, the Inchon landing flipped the war in a week; this Marine Pershing rolled through the block-by-block fight to retake Seoul. The capital would change hands twice more before the armistice.",
       "keywords": [
-        "night launch",
-        "an outer-planets mission",
-        "Titan-class rocket"
+        "armour in a ruined capital",
+        "UN intervention",
+        "the first hot war of the Cold War"
       ]
     },
     {
-      "image": "assets/elvis-nixon.jpg",
-      "year": 1970,
-      "blurb": "Elvis Presley meets Richard Nixon in the Oval Office \u2014 the National Archives' most-requested photograph.",
-      "credit": "Ollie Atkins / White House \u2014 public domain",
-      "story": "Presley arrived unannounced at the White House gate with a handwritten letter asking to be made a federal agent-at-large in the war on drugs. Nixon gave him the badge \u2014 and the resulting photo became the National Archives' most requested item, ahead of the Constitution.",
+      "image": "assets/blue-marble.jpg",
+      "year": 1972,
+      "blurb": "\"The Blue Marble,\" taken by the crew of Apollo 17 \u2014 the last crewed lunar mission \u2014 on the way to the Moon.",
+      "credit": "NASA / Apollo 17 crew \u2014 public domain",
+      "story": "Taken about five hours after launch with the Sun squarely behind the spacecraft \u2014 the only time a human crew has photographed a fully lit Earth. Within months it was an emblem of the environmental movement.",
       "keywords": [
-        "the Oval Office",
-        "wide lapels and sideburns",
-        "an unlikely handshake"
+        "a fully lit Earth",
+        "translunar coast",
+        "the last crewed trip out"
       ]
     },
     {
-      "image": "assets/unity-sts88.jpg",
-      "year": 1998,
-      "blurb": "The International Space Station begins: the Unity node rides in Endeavour's payload bay before mating with Zarya.",
-      "credit": "NASA \u2014 public domain",
-      "story": "Endeavour's crew mated the American Unity node to Russia's Zarya module, the station's first two pieces. The ISS has been continuously occupied since 2000 \u2014 the longest unbroken human presence off Earth.",
+      "image": "assets/occupy.jpg",
+      "year": 2011,
+      "blurb": "Occupy Wall Street gathers near Zuccotti Park on the movement's first day.",
+      "credit": "David Shankbone (CC BY 3.0)",
+      "story": "A few hundred people in a granite plaza grew into encampments in hundreds of cities and put 'the 1%' into the political vocabulary. The Zuccotti Park camp lasted 59 days before police cleared it.",
       "keywords": [
-        "the first station modules mated",
-        "open payload bay",
-        "international assembly begins"
+        "downtown protest encampment",
+        "handmade cardboard signs",
+        "smartphones in hand"
       ]
     }
   ]

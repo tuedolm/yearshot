@@ -3,6 +3,18 @@
   "number": 5,
   "rounds": [
     {
+      "image": "assets/first-flight.jpg",
+      "year": 1903,
+      "blurb": "Orville Wright pilots the first powered flight at Kitty Hawk, North Carolina, while Wilbur runs alongside.",
+      "credit": "John T. Daniels / Library of Congress \u2014 public domain",
+      "story": "The flight lasted twelve seconds and covered 120 feet \u2014 shorter than a 747's wingspan. John Daniels, a lifeguard who had never worked a camera before, squeezed the shutter bulb exactly once that morning and captured one of history's most reproduced images.",
+      "keywords": [
+        "coastal dunes",
+        "canvas-and-wood wings",
+        "a pilot lying prone"
+      ]
+    },
+    {
       "image": "assets/earthrise.jpg",
       "year": 1968,
       "blurb": "\"Earthrise,\" taken from lunar orbit during Apollo 8 \u2014 the first crewed mission to leave Earth orbit.",
@@ -15,51 +27,39 @@
       ]
     },
     {
-      "image": "assets/mlk-march.jpg",
-      "year": 1963,
-      "blurb": "Martin Luther King Jr. at the March on Washington for Jobs and Freedom.",
-      "credit": "Rowland Scherman / U.S. Information Agency \u2014 public domain",
-      "story": "A quarter-million people marched on Washington for jobs and freedom. Near the end of the program, singer Mahalia Jackson called out 'Tell them about the dream, Martin' \u2014 and King set aside his prepared text.",
+      "image": "assets/uh1-vietnam.jpg",
+      "year": 1966,
+      "blurb": "UH-1D helicopters lift infantry during Operation Wahiawa, northeast of Cu Chi, South Vietnam.",
+      "credit": "James K. F. Dung, SFC, U.S. Army \u2014 public domain",
+      "story": "The Huey's rotor thump became the signature sound of the war; more than 7,000 served in Vietnam and roughly half never came home. This lift was part of a 25th Infantry Division sweep near Cu Chi, above an immense Viet Cong tunnel network.",
       "keywords": [
-        "civil rights rally",
-        "a bank of microphones",
-        "mass gathering on the Mall"
+        "troop-carrying helicopters",
+        "Southeast Asia",
+        "olive drab"
       ]
     },
     {
-      "image": "assets/deepwater.jpg",
-      "year": 2010,
-      "blurb": "Fireboats battle the Deepwater Horizon blaze in the Gulf of Mexico.",
-      "credit": "U.S. Coast Guard \u2014 public domain",
-      "story": "The blowout killed 11 workers and sank the rig two days later; the well then leaked for 87 days, some four million barrels \u2014 the largest marine oil spill in history. Penalties eventually passed $60 billion.",
+      "image": "assets/ruth-1920.jpg",
+      "year": 1920,
+      "blurb": "Babe Ruth in his first season as a Yankee \u2014 the year the home run changed baseball.",
+      "credit": "Paul Thompson \u2014 public domain",
+      "story": "The Yankees had just bought Ruth from Boston for $125,000; he answered with 54 home runs \u2014 more than any other entire team in the American League managed that season. The dead-ball era was over, and Boston's ensuing 86-year drought became the Curse of the Bambino.",
       "keywords": [
-        "offshore rig ablaze",
-        "fireboats",
-        "Gulf of Mexico"
+        "baseball",
+        "wool flannel uniform",
+        "packed wooden grandstand"
       ]
     },
     {
-      "image": "assets/london-2012.jpg",
-      "year": 2012,
-      "blurb": "The rings are forged: opening ceremony of the London Summer Olympics.",
-      "credit": "Nick Webb (CC BY 2.0)",
-      "story": "Danny Boyle's ceremony forged the Olympic rings from a staged Industrial Revolution, parachuted the Queen in alongside James Bond, and gave 600 dancing NHS nurses a global stage. Roughly a billion people watched.",
+      "image": "assets/atlantis-mir.jpg",
+      "year": 1995,
+      "blurb": "Space Shuttle Atlantis docked to Russia's Mir station, photographed from a departing Soyuz.",
+      "credit": "NASA \u2014 public domain",
+      "story": "The first shuttle-Mir docking briefly created the largest spacecraft ever assembled \u2014 and this photo exists only because a departing Soyuz backed off to take it. The handshake between rival programs led directly to the ISS.",
       "keywords": [
-        "an Olympic opening ceremony",
-        "forged rings",
-        "industrial-revolution staging"
-      ]
-    },
-    {
-      "image": "assets/blue-marble.jpg",
-      "year": 1972,
-      "blurb": "\"The Blue Marble,\" taken by the crew of Apollo 17 \u2014 the last crewed lunar mission \u2014 on the way to the Moon.",
-      "credit": "NASA / Apollo 17 crew \u2014 public domain",
-      "story": "Taken about five hours after launch with the Sun squarely behind the spacecraft \u2014 the only time a human crew has photographed a fully lit Earth. Within months it was an emblem of the environmental movement.",
-      "keywords": [
-        "a fully lit Earth",
-        "translunar coast",
-        "the last crewed trip out"
+        "a shuttle docked to a Russian station",
+        "post-Cold-War cooperation",
+        "solar arrays"
       ]
     }
   ]

@@ -3,63 +3,63 @@
   "number": 4,
   "rounds": [
     {
-      "image": "assets/first-flight.jpg",
-      "year": 1903,
-      "blurb": "Orville Wright pilots the first powered flight at Kitty Hawk, North Carolina, while Wilbur runs alongside.",
-      "credit": "John T. Daniels / Library of Congress \u2014 public domain",
-      "story": "The flight lasted twelve seconds and covered 120 feet \u2014 shorter than a 747's wingspan. John Daniels, a lifeguard who had never worked a camera before, squeezed the shutter bulb exactly once that morning and captured one of history's most reproduced images.",
+      "image": "assets/vj-kiss.jpg",
+      "year": 1945,
+      "blurb": "V-J Day in Times Square: a sailor's kiss as news of Japan's surrender breaks.",
+      "credit": "Victor Jorgensen, U.S. Navy \u2014 public domain",
+      "story": "When Japan's surrender was announced, Times Square erupted. Navy photographer Victor Jorgensen caught the same kiss as Eisenstaedt's famous LIFE frame from a different angle \u2014 and the government version is the one that belongs to everyone.",
       "keywords": [
-        "coastal dunes",
-        "canvas-and-wood wings",
-        "a pilot lying prone"
+        "sailor's uniform",
+        "spontaneous street celebration",
+        "the end of a war"
       ]
     },
     {
-      "image": "assets/migrant-mother.jpg",
-      "year": 1936,
-      "blurb": "Dorothea Lange's \"Migrant Mother\": Florence Owens Thompson in a pea pickers' camp in Nipomo, California.",
-      "credit": "Dorothea Lange / Farm Security Administration \u2014 public domain",
-      "story": "Florence Owens Thompson, 32 and a mother of seven, sat in a pea pickers' camp where the crop had frozen. Lange stopped for ten minutes and made six exposures; the last became the defining image of the Great Depression.",
+      "image": "assets/jaws-of-death.jpg",
+      "year": 1944,
+      "blurb": "\"Into the Jaws of Death\": U.S. troops wade toward Omaha Beach on the morning of D-Day.",
+      "credit": "Robert F. Sargent, U.S. Coast Guard \u2014 public domain",
+      "story": "Coast Guard coxswain Robert Sargent shot this from the ramp of his landing craft at Omaha Beach on D-Day morning, delivering the 1st Infantry Division into machine-gun fire. By nightfall the Allies had put more than 150,000 men ashore.",
       "keywords": [
-        "drought migration",
-        "government documentary photography",
-        "worn canvas tent"
+        "landing-craft ramp",
+        "invasion beach",
+        "steel helmets"
       ]
     },
     {
-      "image": "assets/pluto.jpg",
-      "year": 2015,
-      "blurb": "Pluto in true color, captured by New Horizons during humanity's first flyby of the dwarf planet.",
-      "credit": "NASA / JHU-APL / SwRI \u2014 public domain",
-      "story": "New Horizons flew nine and a half years and three billion miles for a flyby lasting hours, revealing a heart-shaped nitrogen glacier on a world demoted from planethood mid-journey. Discoverer Clyde Tombaugh's ashes rode aboard.",
+      "image": "assets/london-2012.jpg",
+      "year": 2012,
+      "blurb": "The rings are forged: opening ceremony of the London Summer Olympics.",
+      "credit": "Nick Webb (CC BY 2.0)",
+      "story": "Danny Boyle's ceremony forged the Olympic rings from a staged Industrial Revolution, parachuted the Queen in alongside James Bond, and gave 600 dancing NHS nurses a global stage. Roughly a billion people watched.",
       "keywords": [
-        "a dwarf planet close up",
-        "humanity's first flyby",
-        "a heart-shaped plain"
+        "an Olympic opening ceremony",
+        "forged rings",
+        "industrial-revolution staging"
       ]
     },
     {
-      "image": "assets/pool-it-74.jpg",
-      "year": 1974,
-      "blurb": "A carpooling appeal near Vancouver, Washington, as the first oil crisis dragged on.",
-      "credit": "David Falconer / EPA Documerica, National Archives \u2014 public domain",
-      "story": "OPEC's embargo quadrupled oil prices in months; America answered with odd-even gas rationing, a 55 mph national speed limit, and signs like this one. The era of the cheap-gas land yacht never came back.",
+      "image": "assets/unity-sts88.jpg",
+      "year": 1998,
+      "blurb": "The International Space Station begins: the Unity node rides in Endeavour's payload bay before mating with Zarya.",
+      "credit": "NASA \u2014 public domain",
+      "story": "Endeavour's crew mated the American Unity node to Russia's Zarya module, the station's first two pieces. The ISS has been continuously occupied since 2000 \u2014 the longest unbroken human presence off Earth.",
       "keywords": [
-        "fuel shortage",
-        "carpool appeal",
-        "roadside highway sign"
+        "the first station modules mated",
+        "open payload bay",
+        "international assembly begins"
       ]
     },
     {
-      "image": "assets/occupy.jpg",
-      "year": 2011,
-      "blurb": "Occupy Wall Street gathers near Zuccotti Park on the movement's first day.",
-      "credit": "David Shankbone (CC BY 3.0)",
-      "story": "A few hundred people in a granite plaza grew into encampments in hundreds of cities and put 'the 1%' into the political vocabulary. The Zuccotti Park camp lasted 59 days before police cleared it.",
+      "image": "assets/spaceshipone.jpg",
+      "year": 2004,
+      "blurb": "Test pilot Mike Melvill celebrates atop SpaceShipOne after the first privately funded human spaceflight.",
+      "credit": "Don Ramey Logan (CC BY-SA 3.0)",
+      "story": "Melvill rode SpaceShipOne past the edge of space on the first of the two flights that clinched the $10 million Ansari X Prize. It was the first privately built and funded craft to carry a human to space \u2014 the proof of concept behind commercial spaceflight.",
       "keywords": [
-        "downtown protest encampment",
-        "handmade cardboard signs",
-        "smartphones in hand"
+        "privately funded spaceflight",
+        "Mojave airfield",
+        "a prize competition"
       ]
     }
   ]

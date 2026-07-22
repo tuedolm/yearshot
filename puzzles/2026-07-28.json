@@ -3,63 +3,63 @@
   "number": 8,
   "rounds": [
     {
-      "image": "assets/jaws-of-death.jpg",
-      "year": 1944,
-      "blurb": "\"Into the Jaws of Death\": U.S. troops wade toward Omaha Beach on the morning of D-Day.",
-      "credit": "Robert F. Sargent, U.S. Coast Guard \u2014 public domain",
-      "story": "Coast Guard coxswain Robert Sargent shot this from the ramp of his landing craft at Omaha Beach on D-Day morning, delivering the 1st Infantry Division into machine-gun fire. By nightfall the Allies had put more than 150,000 men ashore.",
+      "image": "assets/katrina.jpg",
+      "year": 2005,
+      "blurb": "New Orleans under water in the days after Hurricane Katrina.",
+      "credit": "Cmdr. Mark Moran / NOAA \u2014 public domain",
+      "story": "The levees failed in more than 50 places and 80% of New Orleans went underwater for weeks. Katrina killed more than 1,800 people and remains the costliest hurricane in U.S. history.",
       "keywords": [
-        "landing-craft ramp",
-        "invasion beach",
-        "steel helmets"
+        "a flooded American city",
+        "rooftop waterlines",
+        "Gulf hurricane"
       ]
     },
     {
-      "image": "assets/womens-march-17.jpg",
-      "year": 2017,
-      "blurb": "The Women's March on Washington, the day after the presidential inauguration.",
-      "credit": "Voice of America \u2014 public domain",
-      "story": "With sister marches on every continent \u2014 including a boat off Antarctica \u2014 the day drew an estimated four million participants in the U.S. alone, likely the largest single-day protest in American history.",
+      "image": "assets/pluto.jpg",
+      "year": 2015,
+      "blurb": "Pluto in true color, captured by New Horizons during humanity's first flyby of the dwarf planet.",
+      "credit": "NASA / JHU-APL / SwRI \u2014 public domain",
+      "story": "New Horizons flew nine and a half years and three billion miles for a flyby lasting hours, revealing a heart-shaped nitrogen glacier on a world demoted from planethood mid-journey. Discoverer Clyde Tombaugh's ashes rode aboard.",
       "keywords": [
-        "pink knitted hats",
-        "a global day of protest",
-        "the day after an inauguration"
+        "a dwarf planet close up",
+        "humanity's first flyby",
+        "a heart-shaped plain"
       ]
     },
     {
-      "image": "assets/uh1-vietnam.jpg",
-      "year": 1966,
-      "blurb": "UH-1D helicopters lift infantry during Operation Wahiawa, northeast of Cu Chi, South Vietnam.",
-      "credit": "James K. F. Dung, SFC, U.S. Army \u2014 public domain",
-      "story": "The Huey's rotor thump became the signature sound of the war; more than 7,000 served in Vietnam and roughly half never came home. This lift was part of a 25th Infantry Division sweep near Cu Chi, above an immense Viet Cong tunnel network.",
+      "image": "assets/space-needle-62.jpg",
+      "year": 1962,
+      "blurb": "The Space Needle rises over the Century 21 Exposition \u2014 the Seattle World's Fair.",
+      "credit": "Seattle Municipal Archives \u2014 public domain",
+      "story": "Built in about 400 days for the fair, the Space Needle anchored an exposition themed on life in the year 2000 \u2014 ten million visitors rode the new monorail and previewed touch-tone phones. Elvis filmed a movie on the grounds that fall.",
       "keywords": [
-        "troop-carrying helicopters",
-        "Southeast Asia",
-        "olive drab"
+        "a world's fair",
+        "futurist tower",
+        "monorail optimism"
       ]
     },
     {
-      "image": "assets/atlantis-mir.jpg",
-      "year": 1995,
-      "blurb": "Space Shuttle Atlantis docked to Russia's Mir station, photographed from a departing Soyuz.",
-      "credit": "NASA \u2014 public domain",
-      "story": "The first shuttle-Mir docking briefly created the largest spacecraft ever assembled \u2014 and this photo exists only because a departing Soyuz backed off to take it. The handshake between rival programs led directly to the ISS.",
+      "image": "assets/falcon-heavy.jpg",
+      "year": 2018,
+      "blurb": "Falcon Heavy's first flight leaves Pad 39A \u2014 with a Roadster for a payload.",
+      "credit": "SpaceX (CC0)",
+      "story": "The demo flight carried a Tesla Roadster with a spacesuited mannequin at the wheel, now orbiting the Sun beyond Mars. Both side boosters landed back at the Cape in formation \u2014 the moment reusable rockets stopped looking experimental.",
       "keywords": [
-        "a shuttle docked to a Russian station",
-        "post-Cold-War cooperation",
-        "solar arrays"
+        "twin boosters landing in formation",
+        "reusable rockets",
+        "a car as payload"
       ]
     },
     {
-      "image": "assets/perseverance-21.jpg",
-      "year": 2021,
-      "blurb": "Perseverance's selfie with the Ingenuity helicopter at Jezero Crater, Mars.",
-      "credit": "NASA / JPL-Caltech / MSSS",
-      "story": "Perseverance posed with Ingenuity, a four-pound helicopter that days later made the first powered flight on another planet \u2014 carrying a swatch of the Wright Flyer's wing fabric. Rated for five flights, it flew 72.",
+      "image": "assets/voyager-launch.jpg",
+      "year": 1977,
+      "blurb": "Voyager 2 leaves Earth aboard a Titan IIIE \u2014 carrying the Golden Record toward interstellar space.",
+      "credit": "NASA/MSFC \u2014 public domain",
+      "story": "Voyager 2 actually launched sixteen days before Voyager 1, on a slower path that let it visit all four outer planets \u2014 an alignment that comes once every 176 years. Nearly five decades on, it still calls home from interstellar space.",
       "keywords": [
-        "a rover selfie",
-        "a tiny helicopter",
-        "Jezero crater"
+        "night launch",
+        "an outer-planets mission",
+        "Titan-class rocket"
       ]
     }
   ]

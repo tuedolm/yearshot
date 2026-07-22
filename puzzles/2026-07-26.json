@@ -15,51 +15,51 @@
       ]
     },
     {
-      "image": "assets/katrina.jpg",
-      "year": 2005,
-      "blurb": "New Orleans under water in the days after Hurricane Katrina.",
-      "credit": "Cmdr. Mark Moran / NOAA \u2014 public domain",
-      "story": "The levees failed in more than 50 places and 80% of New Orleans went underwater for weeks. Katrina killed more than 1,800 people and remains the costliest hurricane in U.S. history.",
+      "image": "assets/times-square-20.jpg",
+      "year": 2020,
+      "blurb": "Times Square, deserted at midday in the first spring of the pandemic.",
+      "credit": "Aaron Barlow (CC BY-SA 4.0)",
+      "story": "New York was then the pandemic's global epicenter, losing hundreds of people a day while the Crossroads of the World stood empty at noon. The billboards kept playing to nobody.",
       "keywords": [
-        "a flooded American city",
-        "rooftop waterlines",
-        "Gulf hurricane"
+        "an empty crossroads at midday",
+        "lockdown",
+        "billboards playing to nobody"
       ]
     },
     {
-      "image": "assets/sally-ride.jpg",
-      "year": 1983,
-      "blurb": "Sally Ride on Challenger's flight deck during STS-7 \u2014 America's first woman in space.",
-      "credit": "NASA / National Archives \u2014 public domain",
-      "story": "Chosen from NASA's first astronaut class open to women, Ride spent the run-up fielding press questions about whether she would cry in orbit. Aboard STS-7 she operated the robot arm she had helped design.",
+      "image": "assets/elvis-nixon.jpg",
+      "year": 1970,
+      "blurb": "Elvis Presley meets Richard Nixon in the Oval Office \u2014 the National Archives' most-requested photograph.",
+      "credit": "Ollie Atkins / White House \u2014 public domain",
+      "story": "Presley arrived unannounced at the White House gate with a handwritten letter asking to be made a federal agent-at-large in the war on drugs. Nixon gave him the badge \u2014 and the resulting photo became the National Archives' most requested item, ahead of the Constitution.",
       "keywords": [
-        "shuttle flight deck",
-        "headset and CRT screens",
-        "a barrier broken"
+        "the Oval Office",
+        "wide lapels and sideburns",
+        "an unlikely handshake"
       ]
     },
     {
-      "image": "assets/sts-1.jpg",
-      "year": 1981,
-      "blurb": "Space Shuttle Columbia lifts off on STS-1, the first flight of the Shuttle program.",
-      "credit": "NASA \u2014 public domain",
-      "story": "Columbia's first flight was the first time NASA put crew on a vehicle that had never flown uncrewed \u2014 John Young and Bob Crippen rode boosters that had only ever been fired on a test stand. It launched twenty years to the day after Gagarin.",
+      "image": "assets/womens-march-17.jpg",
+      "year": 2017,
+      "blurb": "The Women's March on Washington, the day after the presidential inauguration.",
+      "credit": "Voice of America \u2014 public domain",
+      "story": "With sister marches on every continent \u2014 including a boat off Antarctica \u2014 the day drew an estimated four million participants in the U.S. alone, likely the largest single-day protest in American history.",
       "keywords": [
-        "a reusable orbiter's first ride",
-        "white external tank",
-        "Florida pad"
+        "pink knitted hats",
+        "a global day of protest",
+        "the day after an inauguration"
       ]
     },
     {
-      "image": "assets/spaceshipone.jpg",
-      "year": 2004,
-      "blurb": "Test pilot Mike Melvill celebrates atop SpaceShipOne after the first privately funded human spaceflight.",
-      "credit": "Don Ramey Logan (CC BY-SA 3.0)",
-      "story": "Melvill rode SpaceShipOne past the edge of space on the first of the two flights that clinched the $10 million Ansari X Prize. It was the first privately built and funded craft to carry a human to space \u2014 the proof of concept behind commercial spaceflight.",
+      "image": "assets/perseverance-21.jpg",
+      "year": 2021,
+      "blurb": "Perseverance's selfie with the Ingenuity helicopter at Jezero Crater, Mars.",
+      "credit": "NASA / JPL-Caltech / MSSS",
+      "story": "Perseverance posed with Ingenuity, a four-pound helicopter that days later made the first powered flight on another planet \u2014 carrying a swatch of the Wright Flyer's wing fabric. Rated for five flights, it flew 72.",
       "keywords": [
-        "privately funded spaceflight",
-        "Mojave airfield",
-        "a prize competition"
+        "a rover selfie",
+        "a tiny helicopter",
+        "Jezero crater"
       ]
     }
   ]

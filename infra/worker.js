@@ -41,6 +41,34 @@ export default {
       return new Response(null, { headers: CORS });
     }
 
+    // Social proof for the results screen. Deliberately narrow: one puzzle,
+    // one score, three numbers back — rather than shipping the whole /stats
+    // blob to every player just to compute one line.
+    if (request.method === "GET" && url.pathname === "/rank") {
+      const rawScore = url.searchParams.get("score");
+      const n = Number(url.searchParams.get("n") || 0);
+      const score = Number(rawScore);
+      // Checked against the raw param: Number(null) is 0, which would silently
+      // turn a missing score into "you beat nobody" rather than an error.
+      if (!n || rawScore === null || !Number.isFinite(score)) {
+        return new Response("need n and score", { status: 400, headers: CORS });
+      }
+      const row = await env.DB.prepare(
+        "SELECT COUNT(*) AS plays, ROUND(AVG(pts)) AS avg, " +
+        "SUM(CASE WHEN pts < ?2 THEN 1 ELSE 0 END) AS below " +
+        "FROM events WHERE e='complete' AND n=?1"
+      ).bind(n, score).first();
+
+      const plays = row?.plays || 0;
+      // Below a handful of games a percentile is noise, and with one or two
+      // players it edges toward describing an individual. Withhold it.
+      const beat = plays >= 5 ? Math.round((row.below / plays) * 100) : null;
+      return new Response(
+        JSON.stringify({ plays, avg: row?.avg ?? null, beat }),
+        { headers: { ...CORS, "content-type": "application/json" } },
+      );
+    }
+
     if (request.method === "GET" && url.pathname === "/stats") {
       const completes = await env.DB.prepare(
         "SELECT n, COUNT(*) AS plays, ROUND(AVG(pts)) AS avg_total, " +

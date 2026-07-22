@@ -164,7 +164,7 @@
     "reveal-error", "reveal-points", "reveal-blurb", "reveal-credit",
     "hint-chips", "hint-btn",
     "next-btn", "results", "results-name", "results-number", "results-grid",
-    "results-total", "results-streak", "results-breakdown", "share-btn",
+    "results-total", "results-streak", "results-rank", "results-breakdown", "share-btn",
     "share-feedback", "img-story-btn", "img-square-btn",
     "countdown", "help-modal", "help-btn", "help-close",
     "stats-modal", "stats-btn", "stats-close", "stat-games", "stat-avg",
@@ -460,8 +460,34 @@
       els.resultsBreakdown.appendChild(card);
     });
 
+    showRank();
     startCountdown();
     els.shareBtn.focus();
+  }
+
+  // Social proof, fetched after the score is already on screen so a slow or
+  // failed request never delays the result. Framed kindly below average: the
+  // point is a nudge to come back, not a verdict.
+  async function showRank() {
+    if (!CONFIG.analyticsEndpoint || !puzzle) return;
+    const total = totalScore();
+    try {
+      const base = CONFIG.analyticsEndpoint.replace(/\/$/, "");
+      const res = await fetch(`${base}/rank?n=${puzzle.number}&score=${total}`, { cache: "no-store" });
+      if (!res.ok) return;
+      const d = await res.json();
+      if (!d.avg || d.plays < 5) return; // too few games to say anything honest
+      if (d.beat !== null && total > d.avg) {
+        els.resultsRank.textContent = `Better than ${d.beat}% of today's players`;
+        els.resultsRank.className = "results-rank beat";
+      } else {
+        els.resultsRank.textContent = `Today's average is ${fmt(d.avg)}`;
+        els.resultsRank.className = "results-rank";
+      }
+      els.resultsRank.hidden = false;
+    } catch {
+      // Never let the nudge break the results screen.
+    }
   }
 
   function startCountdown() {

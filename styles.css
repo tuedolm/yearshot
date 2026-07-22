@@ -398,6 +398,15 @@ body {
   color: var(--text);
 }
 
+.results-rank {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-dim);
+  animation: rise 0.3s ease-out;
+}
+
+.results-rank.beat { color: var(--green); }
+
 .share-image-row {
   display: flex;
   align-items: center;

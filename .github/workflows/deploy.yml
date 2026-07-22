@@ -1,0 +1,53 @@
+name: Deploy site
+
+# Publishes only what a player needs. The repository also holds the full
+# library (every future answer), the curation tools and the worker config —
+# serving the whole repo made tomorrow's puzzle one fetch away, which defeats
+# the point of shipping one day at a time.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Assemble the public site
+        run: |
+          mkdir -p _site
+          # Everything the game itself loads.
+          cp index.html about.html dashboard.html app.js styles.css _site/
+          cp favicon.svg og.png manifest.webmanifest _site/
+          cp -r puzzles assets _site/
+          [ -f CNAME ] && cp CNAME _site/ || true
+          touch _site/.nojekyll
+          echo "Published files:"
+          find _site -maxdepth 1 | sort
+          echo "Deliberately excluded: content/ tools/ infra/ docs/ .github/"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

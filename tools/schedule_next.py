@@ -75,11 +75,28 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--days", type=int, default=0, help="max days to add (0 = all possible)")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--redo-from", metavar="YYYY-MM-DD",
+                    help="rebuild this day onward, returning its images to the pool")
     args = ap.parse_args()
 
     lib = json.loads(LIBRARY.read_text())
     schedule = lib.setdefault("schedule", {})
     images = {i["id"]: i for i in lib["images"]}
+
+    if args.redo_from:
+        # Never touch a day that has been played or is being played right now:
+        # its puzzle blob is already cached in players' browsers, and changing
+        # it mid-game would swap the photographs underneath someone.
+        today = date.today().isoformat()
+        if args.redo_from <= today:
+            print(f"Refusing to rebuild {args.redo_from}: today is {today} and that day "
+                  f"is already in play. Pick a later date.")
+            return 1
+        freed = [d for d in list(schedule) if d >= args.redo_from]
+        for d in freed:
+            del schedule[d]
+        print(f"Cleared {len(freed)} future day(s) from {args.redo_from} — "
+              f"their images return to the pool.\n")
 
     scheduled_ids = {i for ids in schedule.values() for i in ids}
     pool = [i for i in lib["images"] if i["id"] not in scheduled_ids]
