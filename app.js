@@ -6,7 +6,7 @@
   const CONFIG = {
     name: "Yearshot",         // game name; single place to change on rename
     puzzlePath: "puzzles/",    // where daily blobs live (static dir or CDN)
-    shareUrl: "https://tuedolm.github.io/yearshot/", // appended to shared results
+    shareUrl: "https://yearshot.com/", // appended to shared results
     analyticsEndpoint: "https://yearshot-analytics.tuedolm.workers.dev/", // anonymous score events; GET /stats for aggregates
   };
 

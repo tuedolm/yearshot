@@ -138,7 +138,7 @@ public launch.
 
 ## Playtest deployment
 
-Live at **https://tuedolm.github.io/yearshot/** (GitHub Pages from `main`).
+Live at **https://yearshot.com/** (GitHub Pages from `main`).
 Deploy updates with `git push` (regenerate puzzles first if content changed).
 
 ## Launch checklist
