@@ -243,14 +243,22 @@ body {
 .ghost-btn:hover:not(:disabled) { color: var(--text); border-color: var(--text-dim); }
 .ghost-btn:disabled { opacity: 0.35; cursor: default; }
 
-#hint-chip {
-  font-size: 15px;
+#hint-chips {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.hint-chip {
+  font-size: 14px;
   font-weight: 700;
   color: var(--accent);
   background: var(--surface);
   border: 1px solid var(--accent-dim);
   border-radius: 999px;
   padding: 6px 18px;
+  text-align: center;
   animation: rise 0.2s ease-out;
 }
 

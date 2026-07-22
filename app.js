@@ -6,6 +6,7 @@
   const CONFIG = {
     name: "Yearglass",         // game name; single place to change on rename
     puzzlePath: "puzzles/",    // where daily blobs live (static dir or CDN)
+    shareUrl: "https://tuedolm.github.io/yearglass/", // appended to shared results
     analyticsEndpoint: "https://yearglass-analytics.tuedolm.workers.dev/", // anonymous score events; GET /stats for aggregates
   };
 
@@ -14,7 +15,27 @@
   const ROUNDS = 5;
   const MAX_POINTS = 5000;
   const DECAY = 12; // the single most important tuning parameter in the product
-  const HINT_MULT = 0.6; // hint reveals the decade, keeps 60% of the round score
+
+  // Progressive hints. Each tier is strictly more powerful AND more expensive
+  // than the one before, so none is a dominated choice: era is a ~20-year
+  // bracket, keywords are soft context clues, the decade is a hard 10-year
+  // narrowing. mult is the multiplier applied to the whole round score.
+  const HINT_TIERS = [
+    { key: "era", mult: 0.8, cost: "−20%" },
+    { key: "keywords", mult: 0.7, cost: "−30%" },
+    { key: "decade", mult: 0.6, cost: "−40%" },
+  ];
+
+  // Eras are deliberately wider than a decade so tier 1 stays the weakest hint.
+  function eraLabel(year) {
+    if (year <= 1899) return "the 19th century";
+    if (year <= 1918) return "the early 1900s";
+    if (year <= 1945) return "the interwar and wartime years";
+    if (year <= 1969) return "the postwar era";
+    if (year <= 1989) return "the late Cold War";
+    if (year <= 2007) return "the pre-smartphone digital age";
+    return "the smartphone era";
+  }
 
   // Non-linear slider: position fraction -> year. Recent decades get more
   // travel because the library is denser there and discrimination is finer.
@@ -127,7 +148,7 @@
   let roundIndex = 0;
   let currentYear = posToYear(0.5); // same deterministic start for every player
   let committed = false;
-  let hintUsed = false;
+  let hintLevel = 0; // 0 = none, 1..3 = deepest tier revealed
   let results = [];
   let countdownTimer = null;
 
@@ -141,7 +162,7 @@
     "slider", "slider-track", "ticks", "tick-labels", "thumb", "guess-btn",
     "reveal", "reveal-verdict", "reveal-guess", "reveal-actual",
     "reveal-error", "reveal-points", "reveal-blurb", "reveal-credit",
-    "hint-chip", "hint-btn",
+    "hint-chips", "hint-btn",
     "next-btn", "results", "results-name", "results-number", "results-grid",
     "results-total", "results-streak", "results-breakdown", "share-btn",
     "share-feedback", "countdown", "help-modal", "help-btn", "help-close",
@@ -240,9 +261,12 @@
   function loadRound(i) {
     const round = puzzle.rounds[i];
     committed = false;
-    hintUsed = false;
-    els.hintChip.hidden = true;
+    hintLevel = 0;
+    els.hintChips.innerHTML = "";
+    els.hintChips.hidden = true;
+    els.hintBtn.hidden = false;
     els.hintBtn.disabled = false;
+    els.hintBtn.textContent = `Hint · ${HINT_TIERS[0].cost}`;
     els.photo.classList.remove("faded");
     els.photo.removeAttribute("src");
     els.photoLoading.hidden = false;
@@ -271,11 +295,12 @@
 
     const round = puzzle.rounds[roundIndex];
     const err = Math.abs(currentYear - round.year);
-    const pts = hintUsed ? Math.round(score(err) * HINT_MULT) : score(err);
+    const mult = hintLevel ? HINT_TIERS[hintLevel - 1].mult : 1;
+    const pts = Math.round(score(err) * mult);
     const b = band(err);
-    results.push({ guess: currentYear, actual: round.year, err, pts, emoji: b.emoji, band: b.key, hinted: hintUsed });
+    results.push({ guess: currentYear, actual: round.year, err, pts, emoji: b.emoji, band: b.key, hintLevel });
     saveJSON(KEY_STATE, { date: todayStr, results });
-    track("round", { n: puzzle.number, r: roundIndex + 1, err, pts, hint: hintUsed ? 1 : 0 });
+    track("round", { n: puzzle.number, r: roundIndex + 1, err, pts, hint: hintLevel });
 
     showReveal(results[results.length - 1], b.verdict, round);
   }
@@ -287,7 +312,8 @@
     els.revealActual.textContent = r.actual;
     els.revealError.textContent =
       r.err === 0 ? "spot on" : r.err === 1 ? "1 year off" : `${r.err} years off`;
-    els.revealPoints.textContent = `+${fmt(r.pts)} points` + (r.hinted ? " · hint used" : "");
+    els.revealPoints.textContent = `+${fmt(r.pts)} points` +
+      (r.hintLevel ? ` · hint ${HINT_TIERS[r.hintLevel - 1].cost}` : "");
     els.revealBlurb.textContent = round.blurb;
     els.revealCredit.textContent = round.credit;
     els.nextBtn.textContent = roundIndex === ROUNDS - 1 ? "See results" : "Next photo";
@@ -300,14 +326,29 @@
   els.guessBtn.addEventListener("click", commitGuess);
 
   els.hintBtn.addEventListener("click", () => {
-    if (committed || hintUsed || !puzzle) return;
-    hintUsed = true;
-    const decade = Math.floor(puzzle.rounds[roundIndex].year / 10) * 10;
-    els.hintChip.textContent = `📅 The ${decade}s`;
-    els.hintChip.hidden = false;
-    els.hintBtn.disabled = true;
+    if (committed || !puzzle || hintLevel >= HINT_TIERS.length) return;
+    const round = puzzle.rounds[roundIndex];
+    hintLevel++;
+
+    const chip = document.createElement("div");
+    chip.className = "hint-chip";
+    if (hintLevel === 1) {
+      chip.textContent = `🕰 ${eraLabel(round.year)}`;
+    } else if (hintLevel === 2) {
+      chip.textContent = `🔑 ${(round.keywords || []).join(" · ")}`;
+    } else {
+      chip.textContent = `📅 The ${Math.floor(round.year / 10) * 10}s`;
+    }
+    els.hintChips.appendChild(chip);
+    els.hintChips.hidden = false;
+
+    if (hintLevel >= HINT_TIERS.length) {
+      els.hintBtn.hidden = true;
+    } else {
+      els.hintBtn.textContent = `More · ${HINT_TIERS[hintLevel].cost}`;
+    }
     els.slider.focus();
-    track("hint", { n: puzzle.number, r: roundIndex + 1 });
+    track("hint", { n: puzzle.number, r: roundIndex + 1, hint: hintLevel });
   });
 
   els.nextBtn.addEventListener("click", () => {
@@ -342,7 +383,9 @@
   function shareText() {
     const grid = results.map((r) => r.emoji).join("");
     const num = String(puzzle.number).padStart(3, "0");
-    return `${CONFIG.name} #${num}\n${grid}\n${fmt(totalScore())} / ${fmt(ROUNDS * MAX_POINTS)}`;
+    // The link is the whole point of sharing: a grid nobody can act on is a
+    // dead end. Kept on its own line so chat apps linkify it cleanly.
+    return `${CONFIG.name} #${num}\n${grid}\n${fmt(totalScore())} / ${fmt(ROUNDS * MAX_POINTS)}\n${CONFIG.shareUrl}`;
   }
 
   function showResults() {
@@ -380,7 +423,7 @@
       desc.className = "breakdown-desc";
       const strong = document.createElement("strong");
       strong.textContent = r.actual;
-      desc.append(strong, ` — you said ${r.guess}${r.hinted ? " 💡" : ""}`);
+      desc.append(strong, ` — you said ${r.guess}${r.hintLevel ? " 💡".repeat(r.hintLevel) : ""}`);
 
       const errEl = document.createElement("div");
       errEl.className = "breakdown-error";
@@ -435,19 +478,33 @@
     countdownTimer = setInterval(tick, 1000);
   }
 
-  els.shareBtn.addEventListener("click", async () => {
-    const text = shareText();
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch {
+  function copyToClipboard(text) {
+    return navigator.clipboard.writeText(text).catch(() => {
       const ta = document.createElement("textarea");
       ta.value = text;
       document.body.appendChild(ta);
       ta.select();
       document.execCommand("copy");
       ta.remove();
+    });
+  }
+
+  els.shareBtn.addEventListener("click", async () => {
+    const text = shareText();
+    // On phones — where most sharing happens — hand off to the native sheet so
+    // the result goes straight into a group chat. Desktop falls back to copy.
+    if (navigator.share) {
+      try {
+        await navigator.share({ text });
+        track("share", { n: puzzle.number });
+        return;
+      } catch (e) {
+        if (e && e.name === "AbortError") return; // user dismissed the sheet
+        // Anything else (unsupported payload, permission): fall through to copy.
+      }
     }
-    els.shareFeedback.textContent = "Copied to clipboard";
+    await copyToClipboard(text);
+    els.shareFeedback.textContent = "Copied — paste it anywhere";
     track("share", { n: puzzle.number });
     setTimeout(() => { els.shareFeedback.textContent = ""; }, 2500);
   });
@@ -523,6 +580,7 @@
 
   async function boot() {
     els.wordmark.textContent = CONFIG.name.toUpperCase();
+    if (navigator.share) els.shareBtn.textContent = "Share result";
     document.title = `${CONFIG.name} — the daily photo game`;
     els.slider.setAttribute("aria-valuemin", MIN_YEAR);
     els.slider.setAttribute("aria-valuemax", MAX_YEAR);
